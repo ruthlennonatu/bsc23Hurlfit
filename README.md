@@ -28,6 +28,9 @@ Our product will be delivered using an Agile methodology that embraces the DevOp
 
 # Scrum Master
 - Week 4 Scrum Master <name> <lnumber>
+- Week 5 Scrum Master <name> <lnumber>
+- Week 6 Scrum Master <name> <lnumber>
+- Week 8 Scrum Master <Aaron Bonner> <L00167055>
 
 
 # Product Owner
