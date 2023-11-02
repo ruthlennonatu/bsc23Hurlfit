@@ -86,6 +86,9 @@ The language we'll be using is Javascript, the framework used will be Node.js
 
 # Testing:
     Unit testing
+    Mocha is what will be used for unit testing.
+    Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while   
+    mapping uncaught exceptions to the correct test cases. Hosted on GitHub. 
     integration testing
     UA
     API Testing
