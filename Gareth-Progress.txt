@@ -1,0 +1,5 @@
+Currently working on implementing CI CD into the pipeline. I will be looking
+into using Github Actions to check for various rules using the workflows.
+
+Currently now working on implementing naming conventions for the branches that
+can be created. It will check for pull requests and creation requests.
