@@ -28,6 +28,9 @@ Our product will be delivered using an Agile methodology that embraces the DevOp
 
 # Scrum Master
 - Week 4 Scrum Master <name> <lnumber>
+- Week 5 Scrum Master <name> <lnumber>
+- Week 6 Scrum Master <name> <lnumber>
+- Week 8 Scrum Master <Aaron Bonner> <L00167055>
 
 
 # Product Owner
@@ -74,7 +77,7 @@ These are the current Risks on the project, re-aligned on a weekly basis
 
 
 # Tenants of Design
-The code framework to be used will be Java, we will be programming using the app IntelliJ
+The language we'll be using is Javascript, the framework used will be Node.js
 
 # Security:
 - SpotBugs: uses static analysis to find bugs in java code. 
@@ -83,6 +86,9 @@ The code framework to be used will be Java, we will be programming using the app
 
 # Testing:
     Unit testing
+    Mocha is what will be used for unit testing.
+    Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while   
+    mapping uncaught exceptions to the correct test cases. Hosted on GitHub. 
     integration testing
     UA
     API Testing
