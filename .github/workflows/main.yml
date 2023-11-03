@@ -17,6 +17,7 @@ jobs:
       - name: Check branch name
         if: startsWith(github.ref, ${{ github.actor }})
         run: echo "Branch has correct naming conventions"
+          echo ${{ github.actor }}
 
   my_second_job:
     name: Checking if branch naming convention is un-successful
