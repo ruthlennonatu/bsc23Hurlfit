@@ -12,13 +12,13 @@ jobs:
     name: Checking if branch naming convention is successful
     runs-on: ubuntu-latest
     if:
-      contains('refs/heads/l00156477-
-                  refs/heads/L00166967-
-                  refs/heads/L00129014-
-                  refs/heads/ruthlennonatu-
-                  refs/heads/L00160435-
-                  refs/heads/aaronbonnerATU-',
-                  github.ref)
+      contains('L00156477-
+                L00166967-
+                L00129014-
+                ruthlennonatu-
+                L00160435-
+                aaronbonnerATU-',
+                github.ref)
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
