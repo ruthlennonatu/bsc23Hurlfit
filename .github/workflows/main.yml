@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
-        if: startsWith(github.ref, '${{ github.actor }}-')
+        if: contains(github.ref, '${{ github.actor }}-')
         run: echo "Branch has correct naming conventions"
           echo ${{ github.head_ref }} ${{ github.actor }}
 
