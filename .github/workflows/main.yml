@@ -10,7 +10,7 @@ on:
 
 jobs:
   my_first_job:
-    name: Branch Naming Convention Success
+    name: Branch Naming Convention
     runs-on: ubuntu-latest
     if:
       contains('refs/heads/l00156477-
@@ -24,3 +24,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check branch name
         run: echo "Branch has correct naming conventions"
+
+  my_second_job:
+    name: Check First Job Success
+    if: always() && success()
+    runs-on: ubuntu-latest
+    needs: my_first_job
+    steps:
+      - name: Check first job success
+        run: echo "Incorrect Naming Conventions"
