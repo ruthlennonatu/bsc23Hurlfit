@@ -11,8 +11,16 @@ on:
 jobs:
   my_first_job:
     name: Branch Naming Convention Success
-    if: startsWith(github.event.ref, 'refs/heads/l00156477') || startsWith(github.event.ref, 'refs/heads/L00166967') || startsWith(github.event.ref, 'refs/heads/L00129014') || startsWith(github.event.ref, 'refs/heads/ruthlennonatu') || startsWith(github.event.ref, 'refs/heads/L00160435') || startsWith(github.event.ref, 'refs/heads/aaronbonnerATU')
     runs-on: ubuntu-latest
+    if:
+      contains('refs/heads/l00156477-
+                  refs/heads/L00166967-
+                  refs/heads/L00129014-
+                  refs/heads/ruthlennonatu-
+                  refs/heads/L00160435-
+                  refs/heads/aaronbonnerATU-',
+                  github.ref)
     steps:
+      - uses: actions/checkout@v4
       - name: Check branch name
         run: echo "Branch has correct naming conventions"
