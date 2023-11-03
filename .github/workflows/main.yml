@@ -1,9 +1,6 @@
 name: Check Branch Naming Conventions
 
 on:
-  create:
-    branches:
-      - '*'
   pull_request:
     branches:
       - main
@@ -17,7 +14,7 @@ jobs:
       - name: Check branch name
         if: startsWith(github.ref, ${{ github.actor }})
         run: echo "Branch has correct naming conventions"
-          echo ${{ github.ref }} ${{ github.actor }}
+          echo ${{ github.head_ref }} ${{ github.actor }}
 
   my_second_job:
     name: Checking if branch naming convention is un-successful
