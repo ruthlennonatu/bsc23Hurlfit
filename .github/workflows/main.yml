@@ -20,7 +20,7 @@ jobs:
 
   my_second_job:
     name: Checking if branch naming convention is un-successful
-    if: always() && (needs.my_first_job.result == 'skipped')
+    if: failure()
     runs-on: ubuntu-latest
     needs: my_first_job
     steps:
