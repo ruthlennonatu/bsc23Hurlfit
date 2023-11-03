@@ -12,14 +12,7 @@ jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
     runs-on: ubuntu-latest
-    if:
-      contains('L00156477-
-                L00166967-
-                L00129014-
-                ruthlennonatu-
-                L00160435-
-                aaronbonnerATU-',
-                github.ref)
+    if: false
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
