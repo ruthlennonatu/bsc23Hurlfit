@@ -1,4 +1,4 @@
-name: Branch Naming Conventions
+name: Check Branch Naming Conventions
 
 on:
   create:
@@ -33,6 +33,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Naming convention Failure
-        with:
-          script: |
-              core.setFailed('Incorrect nameing conventions, branches must have users, username listed.')
+        run: echo "Incorrect naming convention, branches must contain username" && exit 1
