@@ -12,7 +12,7 @@ jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
     runs-on: ubuntu-latest
-    if: false
+    if: true
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
