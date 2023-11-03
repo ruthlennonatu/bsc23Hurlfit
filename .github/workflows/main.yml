@@ -11,13 +11,16 @@ on:
 jobs:
   my_first_job:
     name: Branch Naming Convention Success
-    if: contains(github.event.ref, 'refs/heads/l00156477', 'refs/heads/L00166967', 'refs/heads/L00129014', 'refs/heads/ruthlennonatu', 'refs/heads/L00160435', 'refs/heads/aaronbonnerATU')
+    if: startsWith(github.event.ref, 'refs/heads/l00156477') || startsWith(github.event.ref, 'refs/heads/L00166967') || startsWith(github.event.ref, 'refs/heads/L00129014') || startsWith(github.event.ref, 'refs/heads/ruthlennonatu') || startsWith(github.event.ref, 'refs/heads/L00160435') || startsWith(github.event.ref, 'refs/heads/aaronbonnerATU')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "branch has correct naming conventions"
+      - name: Check branch name
+        run: echo "Branch has correct naming conventions"
+
   my_second_job:
     name: Branch Naming Convention Failure
-    if: contains(github.event.ref, 'refs/heads/l00156477', 'refs/heads/L00166967', 'refs/heads/L00129014', 'refs/heads/ruthlennonatu', 'refs/heads/L00160435', 'refs/heads/aaronbonnerATU')
+    if: startsWith(github.event.ref, 'refs/heads/') && !startsWith(github.event.ref, 'refs/heads/l00156477') && !startsWith(github.event.ref, 'refs/heads/L00166967') && !startsWith(github.event.ref, 'refs/heads/L00129014') && !startsWith(github.event.ref, 'refs/heads/ruthlennonatu') && !startsWith(github.event.ref, 'refs/heads/L00160435') && !startsWith(github.event.ref, 'refs/heads/aaronbonnerATU')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "branch does not have correct naming conventions"
+      - name: Check branch name
+        run: echo "Branch does not have correct naming conventions"
