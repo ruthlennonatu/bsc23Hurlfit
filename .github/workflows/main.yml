@@ -12,10 +12,10 @@ jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
     runs-on: ubuntu-latest
-    if: true
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
+        if: true
         run: echo "Branch has correct naming conventions"
 
   my_second_job:
