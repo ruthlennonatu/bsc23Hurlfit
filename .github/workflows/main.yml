@@ -27,7 +27,7 @@ jobs:
 
   my_second_job:
     name: Check First Job Success
-    if: always() && success()
+    if: always() && (needs.my_first_job.result == 'skipped')
     runs-on: ubuntu-latest
     needs: my_first_job
     steps:
