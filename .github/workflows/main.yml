@@ -31,5 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: my_first_job
     steps:
-      - name: Check first job success
-        run: echo "Incorrect Naming Conventions"
+      - name: Naming convention Failure
+        with:
+          script: |
+              core.setFailed('Incorrect nameing conventions, branches must have users, username listed.')
