@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
-        if: contains('L00156477-', github.ref)
+        if: startsWith(github.ref, ${{ github.actor }})
         run: echo "Branch has correct naming conventions"
 
   my_second_job:
