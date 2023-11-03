@@ -11,14 +11,13 @@ on:
 jobs:
   my_first_job:
     name: Branch Naming Convention Success
-    if: github.branch.name.contains('l00156477', 'L00166967', 'L00129014', 'ruthlennonatu', 'L00160435', 'aaronbonnerATU')
+    if: contains(github.event.ref, 'refs/heads/l00156477', 'refs/heads/L00166967', 'refs/heads/L00129014', 'refs/heads/ruthlennonatu', 'refs/heads/L00160435', 'refs/heads/aaronbonnerATU')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "branch has correct nameing conventions"
-  my_secound_job:
+      - run: echo "branch has correct naming conventions"
+  my_second_job:
     name: Branch Naming Convention Failure
-    if: ${{ ! github.branch.name.contains('l00156477', 'L00166967', 'L00129014', 'ruthlennonatu', 'L00160435', 'aaronbonnerATU') }}
+    if: contains(github.event.ref, 'refs/heads/l00156477', 'refs/heads/L00166967', 'refs/heads/L00129014', 'refs/heads/ruthlennonatu', 'refs/heads/L00160435', 'refs/heads/aaronbonnerATU')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "branch has correct nameing conventions"
-    
+      - run: echo "branch does not have correct naming conventions"
