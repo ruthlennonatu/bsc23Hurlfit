@@ -1,0 +1,24 @@
+name: Branch Naming Conventions
+
+on:
+  create:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  my_first_job:
+    name: Branch Naming Convention Success
+    if: github.branch.name.contains('l00156477', 'L00166967', 'L00129014', 'ruthlennonatu', 'L00160435', 'aaronbonnerATU')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "branch has correct nameing conventions"
+  my_secound_job:
+    name: Branch Naming Convention Failure
+    if: ${{ ! github.branch.name.contains('l00156477', 'L00166967', 'L00129014', 'ruthlennonatu', 'L00160435', 'aaronbonnerATU') }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "branch has correct nameing conventions"
+    
