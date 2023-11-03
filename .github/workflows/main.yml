@@ -8,11 +8,11 @@ on:
 jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
+    if: contains(github.ref, '${{ github.actor }}-')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
-        if: contains(github.ref, '${{ github.actor }}-')
         run: echo "Branch has correct naming conventions"
           echo ${{ github.head_ref }} ${{ github.actor }}
 
