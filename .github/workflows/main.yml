@@ -15,13 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
-        if: contains('L00156477-',
-                'L00166967-',
-                'L00129014-',
-                'ruthlennonatu-',
-                'L00160435-',
-                'aaronbonnerATU-',
-                github.ref)
+        if: contains('L00156477-', github.ref)
         run: echo "Branch has correct naming conventions"
 
   my_second_job:
