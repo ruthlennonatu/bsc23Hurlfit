@@ -1,0 +1,2 @@
+Currently working on implementing CI CD into the pipeline. I will be looking
+into using Github Actions to check for various rules using the workflows.
