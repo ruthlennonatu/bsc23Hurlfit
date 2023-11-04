@@ -8,13 +8,12 @@ on:
 jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
-    if: startsWith('thiswillfail', ${{ github.actor }} + '-')
+    if: startsWith(github.repository, ${{ github.actor }} + '-')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
-        run: echo "Branch has correct naming conventions"
-          echo ${{ github.head_ref }} ${{ github.actor }}
+        run: echo "Branch has correct naming conventions" ${{ github.repository }} ${{ github.actor }}
 
   my_second_job:
     name: Checking if branch naming convention is un-successful
