@@ -8,7 +8,7 @@ on:
 jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
-    if: startsWith(github.head_ref, ${{ github.actor }} + '-')
+    if: startsWith(format(github.head_ref), format(${{ github.actor }} + '-'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
