@@ -1,0 +1,15 @@
+We can use MERN framework to develope a web application.
+MERN stack is a collection of technologies that enables faster application development. It is used by developers worldwide.
+The main purpose of using MERN stack is to develop apps using JavaScript only. This is because the four technologies that make up the technology stack are all JS-based. 
+Thus, if one knows JavaScript (and JSON), the backend, frontend, and database can be operated easily. 
+
+M - MongoDB :- which is a NoSQL database management system.data is stored in the form of documents having key-value pairs similar to JSON objects
+E - ExpressJS :- It is a backend web application framework for NodeJS.
+R - ReactJS :- a JavaScript library for developing UIs based on UI components.The JS library uses virtual DOM for doing everything.
+N - NodeJS :- It is a JS runtime environment, i.e., it enables running JavaScript code outside the browser. 
+              It comes with the node package manager or npm, enabling users to select from a wide selection of node modules or packages.
+
+UseFul Links 
+
+:- https://www.simplilearn.com/tutorials/mongodb-tutorial/what-is-mern-stack-introduction-and-examples
+:- https://www.linkedin.com/pulse/step-guide-develop-mern-stack-application-ranjith-kumar/
