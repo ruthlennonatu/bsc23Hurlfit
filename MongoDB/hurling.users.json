@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "65395d5ab0c65774f22a07af"
+  },
+  "usename": "Sally",
+  "email": "Sally123@gmail.com",
+  "password": "Sally123",
+  "special requests": "None"
+},
+{
+  "_id": {
+    "$oid": "65395e5fb0c65774f22a07b1"
+  },
+  "username": "Charlie",
+  "email": "Charlie456@hotmail.com",
+  "password": "Charlie456",
+  "special requests": "Knee injury"
+},
+{
+  "_id": {
+    "$oid": "65395e5fb0c65774f22a07b2"
+  },
+  "username": "Bill",
+  "email": "Bill789@outlook.com",
+  "password": "Bill789",
+  "special requests": "Asthma"
+}]

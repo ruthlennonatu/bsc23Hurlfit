@@ -1,0 +1,26 @@
+name: Check Branch Naming Conventions
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  my_first_job:
+    name: Checking if branch naming convention is successful
+    if: startsWith(format(github.head_ref), format(${{ github.actor }} + '-'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check branch name
+        run: echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
+
+  my_second_job:
+    name: Checking if branch naming convention is un-successful
+    if: failure()
+    runs-on: ubuntu-latest
+    needs: my_first_job
+    steps:
+      - uses: actions/checkout@v4
+      - name: Naming convention Failure
+        run: echo "Incorrect naming convention, branches must contain username" && exit 1
