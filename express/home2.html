@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hurlfit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header ul {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+            margin-top: 20px;
+        }
+
+        header li {
+            margin-right: 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .box h3 {
+            color: #000; /* Change text color if needed */
+        }
+
+        .box p {
+            color: #000; /* Change text color if needed */
+        }
+
+        footer {
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hurlfit</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Booking</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="box-container">
+            <!-- Hurling Session Boxes -->
+            <div class="box">
+                <img src="https://via.placeholder.com/300" alt="Hurling Session 1">
+                <h3>Session 1</h3>
+                <p>Join us for an exciting hurling session. Learn and improve your skills with experienced coaches.</p>
+                <button>Book Now</button>
+            </div>
+
+            <div class="box">
+                <img src="https://via.placeholder.com/300" alt="Hurling Session 2">
+                <h3>Session 2</h3>
+                <p>Enhance your hurling techniques in a fun and supportive environment. All skill levels are welcome!</p>
+                <button>Book Now</button>
+            </div>
+
+            <div class="box">
+                <img src="https://via.placeholder.com/300" alt="Hurling Session 2">
+                <h3>Session 3</h3>
+                <p>Enhance your hurling techniques in a fun and supportive environment. All skill levels are welcome!</p>
+                <button>Book Now</button>
+            </div>
+
+            <!-- Add more session boxes as needed -->
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Hurlfit. All rights reserved.</p>
+    </footer>
+</body>
+</html>
