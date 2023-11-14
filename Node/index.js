@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //this prevents favicon not found error
 app.get("/favicon.ico", function(req, res){
@@ -35,6 +35,7 @@ app.post("/SignupSubmit",function(req,res){
 
 app.post("/LoginSubmit",function(req,res){
     var data = req.body
+    console.log(data);
     model.Login(req,res,data)
 });
 

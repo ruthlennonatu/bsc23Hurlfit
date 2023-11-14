@@ -2,46 +2,58 @@
 const { MongoClient } = require('mongodb');
 
 // Connection URI for local MongoDB instance
-const uri = 'mongodb://localhost:27017'; 
+const uri = 'mongodb://localhost:27017';
 
 // Database Name
-const databaseName = 'hurling'; 
+const databaseName = 'hurling';
+
 // Create a new MongoClient
 const client = new MongoClient(uri);
 
+// Collection Name
+const collectionName = 'users';
+
 // Connect to MongoDB
 async function connectToMongoDB() {
-  try {
-    await client.connect();
-    console.log('Connected successfully to MongoDB');    
-  } catch (err) {
-    console.error('Error occurred while connecting to MongoDB:', err);
-  }
+    try {
+        await client.connect();
+        console.log('Connected successfully to MongoDB');
+    } catch (err) {
+        console.error('Error occurred while connecting to MongoDB:', err);
+    }
 }
 
-async function closeConnection(){
+async function closeConnection() {
     await client.close();
 }
 
-//these are the only two needed so far 
-exports.SignUp = function(res,req,data){
+// Signup function
+exports.SignUp = function (req, res, data) {
     connectToMongoDB().then(
-        function(){
-            //do query here
+        function () {
+            // Perform signup operations here
+            // ...
+            closeConnection(); // Close connection after operations
         }
     );
-
-    closeConnection();
 }
 
-
-exports.Login = function(res,req,data){
+// Login function
+exports.Login = function (req, res, data) {
     connectToMongoDB().then(
-        function(){
-            //do query here
-            //needs to return some kind ok okay respose to let user log in 
+        async function () {
+            const database = client.db(databaseName);
+            // Access the collection
+            const collection = database.collection(collectionName);
+            const user = await collection.findOne(data);
+            if (user) {
+                // Redirect to the homepage on successful login
+                res.redirect('/Booking');
+            } else {
+                // Display login unsuccessful message
+                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`);
+            }
+            closeConnection(); // Close connection after operations
         }
     );
-
-    closeConnection();
 }
