@@ -1,5 +1,7 @@
 #AUTOMATED UNIT TESTING WHEN PUSHED TO MAIN
-name: Run Unit Tests
+
+# Define the trigger for the workflow: on push to main or workflow branches
+name: Run Unit Tests 
 
 on:
   push:
@@ -7,21 +9,22 @@ on:
       - main  
       - workflow
 
+# Define the job for the workflow
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Run the job on an Ubuntu environment
 
     steps:
-      - name: Checkout code
+      - name: Checkout code # Step to check out the code from the repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 14 # Use Node.js version 14
 
-      - name: Install Dependencies
+      - name: Install Dependencies # Step to install project dependencies
         run: npm install
 
-      - name: Run Tests
-        run: npm test
+      - name: Run Tests # Step to execute tests
+        run: npm test # Run the tests using 'npm test' command
