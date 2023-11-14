@@ -18,3 +18,9 @@ Along with this style guide, the following rules for code should be adhered to. 
 - No abbriviations in variable or function names i.e. ❌[let tMembers = 1], ✔️[let totalMembers = 10];
 - No nesting more than 3 levels deep.
 - Non-class private variables should be prefixed with a underscore i.e. ❌[let private=1], ✔️[let _private=1]
+- Avoid using depreceated features when possible.
+
+CODE REVIEW:
+Before code is pushed to main:
+    -The code should be tested by using standard's tester in node to ensure it fits the style guide.
+    -All code should be reviewed by one other team member to fit the rules above and to look for general readability.
