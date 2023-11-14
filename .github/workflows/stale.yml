@@ -3,24 +3,27 @@
 # You can adjust the behavior by modifying this file.
 # For more information, see:
 # https://github.com/actions/stale
+
+# Define the trigger for the workflow: schedule on a specific cron time
 name: Mark stale issues and pull requests
 
 on:
   schedule:
-  - cron: '41 7 * * *'
-
+  - cron: '41 7 * * *' # Runs the workflow at 7:41 UTC every day
+# Define the job for marking stale issues and pull requests
 jobs:
   stale:
 
     runs-on: ubuntu-latest
+     # Define permissions to write to issues and pull requests
     permissions:
       issues: write
       pull-requests: write
 
     steps:
-    - uses: actions/stale@v5
+    - uses: actions/stale@v5 # Use the 'actions/stale@v5' action
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }} # Use the GitHub token for repository access
         stale-issue-message: 'Stale issue message'
         stale-pr-message: 'Stale pull request message'
         stale-issue-label: 'no-issue-activity'
