@@ -1,0 +1,26 @@
+This document will detail the Code Standards we will use for the project.
+
+STYLE GUIDE:
+The Style Guide we will use is Standard.js. The rules for it are listed at its homepage(https://standardjs.com/). 
+
+- A pre-commit hook is also available; all code that attempts to be pushed to main will be fixed to fit the standard automatically.
+- A tester CLI program that can be installed using Node to test if the code follows the standard. 
+    -This can be installed using 'npm install standard'; and will be included in package.json so it can work with 'npm test'.
+-Linters are available to ensure that we code in this style. 
+    - The one for VSCode is located at https://marketplace.visualstudio.com/items?itemName=standard.vscode-standard.
+    -Other linters for other editors are available at the homepage.
+
+CODING CONVENTIONS:
+Along with this style guide, the following rules for code should be adhered to. Note that these don't have an associated pre-commit hook:
+
+- All function names should be in the format of verbNoun e.g. fetchFile instead of fileFetch.
+- No variable names that are single letters(outside for loops) i.e. ❌[let c = 10], ✔️[let courses = 10];
+- No abbriviations in variable or function names i.e. ❌[let tMembers = 1], ✔️[let totalMembers = 10];
+- No nesting more than 3 levels deep.
+- Non-class private variables should be prefixed with a underscore i.e. ❌[let private=1], ✔️[let _private=1]
+- Avoid using depreceated features when possible.
+
+CODE REVIEW:
+Before code is pushed to main:
+    -The code should be tested by using standard's tester in node to ensure it fits the style guide.
+    -All code should be reviewed by one other team member to fit the rules above and to look for general readability.
