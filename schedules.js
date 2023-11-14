@@ -10,7 +10,20 @@ app.use(express.json())
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-  
+
+mongoose.connect('mongodb://localhost/scheduledb');
+
+
+
+
+
+
+/*
+, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+*/
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -22,9 +35,10 @@ db.once('open', () => {
 
 //res.render('name of html or handlebar page', {'data name seen once recieved': the data you want to send, 'data name seen once recieved': the data you want to send})
 
-//findOne
-//insertOne
-//deleteOne
+//findOne   -   looks for an object in db
+//insertOne -   adds a new object to db
+//deleteOne -   deletes an object from db
+//updateOne -   modifies an object in db
 
 //need to change the "time" value in sessions to "duration"
 //or something which will allow me to make sure the sessions dont overlap
@@ -56,7 +70,7 @@ app.get('/schedules', () => {
         res.status(500).json({error: 'Could not fetch sessions'})
     });
 
-    //res.redirect('schedules');
+    res.redirect('/schedules');
 })
 
 //creates and adds a new schedule json object into the database
@@ -80,9 +94,9 @@ app.post('/schedules/create', (req, res) => {
     db.collection('schedules')
     .insertOne(schedule)
     .then(result => res.status(201).json(result))
-    .catch(err => {res.status(500).json([err])});
+    .catch(err => res.status(500).json([err]));
 
-    //res.redirect('schedules');
+    res.redirect('/schedules');
 });
 
 //delets a schedule json object from the database 
@@ -90,35 +104,49 @@ app.delete('/schedules/delete/:id', (req, res) =>{
     if(ObjectId.isValid(req.params.id)){
         db.collection('schedules')
         .deleteOne({_id: ObjectID(req.params.id)})
-        .then(result => res.status(200).json(result))
+        .then(result => {res.status(200).json(result)})
         .catch(err => {res.status(500).json([err])});
     }
     else{
         res.status(500).json({error: 'ID not valid'});
     }
 
-    //res.redirect('schedules');
+    res.redirect('/schedules');
 });
 
 //adds a session to a specific schedule
-app.post('/schedule/add-session/:id', (req, res) => {
+app.patch('/schedule/add-session/:schedule_id+:session_id+:day', (req, res) => {
     //add a training session to the ___ schedule
 
-    //get the schedule
-    
+    //get the schedule and the session
+    sc = db.collection('schedules')
+    .findOne(req.params.schedule_id)
+    .then(() => {res.status(200).json(schedule_list);})
+    .catch(() => {res.status(500).json({error: 'Could not fetch schedules'});});
 
-    //check if the time overlaps
+    se = db.collection('sessions')
+    .findOne(req.params.session_id)
+    .then(result => {res.status(200).json(result);})
+    .catch(() => {res.status(500).json({error: 'Could not fetch sessions'});});
 
-    //add
+    //check if the time overlaps(do later) and add it to the schedule
 
-    //return schedule to database
+    sc[req.params.day].push(se);
+
+    //update the schedule
+
+    db.collection('schedules')
+    .updateOne({_id: ObjectId(req.params.schedule_id)}, {$set: sc})
+    .then(result => {res.status(200).json(result);})
+    .catch(() => {res.status(500).json({error: 'Could not update schedules'});});
 
 
-    //res.redirect('schedules');
+
+    res.redirect('/schedules');
 });
 
 //removes a session from a specific schedule
-app.delete('/schedule/delete-session/:id', (req, res) => {
+app.delete('/schedule/delete-session/:schedule_id+:session_id', (req, res) => {
     //delete a training session from the ___ schedule
 
 

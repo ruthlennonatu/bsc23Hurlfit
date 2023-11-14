@@ -26,23 +26,33 @@
     
     <div>
         <form action="/schedules/delete/:id">
-
+            
+            <input type="text">
 
             <input type="submit">
         </form>
     </div>
     
     <div>
-        <form>
-
+        <form action="/schedules/add-session/:schedule_id+:session_id+:day">
+            <!--handlebar-->
 
         </form>
     </div>
-    <!--Display of the schedules-->
 
+    <div>
+        <form action="/schedules/delete-session/:schedule_id+:session_id">
+            <!--handlebar-->
+
+        </form>
+    </div>
+
+    <!--Display of the schedules-->
     <div>
 
 
     </div>
 
 </body>
+
+<script scr="schedules.js"></script>
