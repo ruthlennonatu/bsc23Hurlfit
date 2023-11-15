@@ -13,11 +13,14 @@ The Style Guide we will use is Standard.js. The rules for it are listed at its h
 CODING CONVENTIONS:
 Along with this style guide, the following rules for code should be adhered to. Note that these don't have an associated pre-commit hook:
 
-- All function names should be in the format of verbNoun e.g. fetchFile instead of fileFetch.
-- No variable names that are single letters(outside for loops) i.e. ❌[let c = 10], ✔️[let courses = 10];
-- No abbriviations in variable or function names i.e. ❌[let tMembers = 1], ✔️[let totalMembers = 10];
+- All function names should be in the format of verbNoun e.g. ❌[function fileFetch(){...}], ✔️[function fetchFile(){...}]
+- All non-function variables should be in the form of a noun or adjectiveNoun e.g. ❌[valueOfTheLoop += 1], ✔️[currentValue += 1]
+- Variavle or function names should not be abbreviated e.g. ❌[let tMembers = 1], ✔️[let totalMembers = 10];
+- Constants should be in all capital letters seperated by underscores e.g. ❌[const portNumber = 3000], ✔️[const PORT_NUMBER = 3000];
+- Non-constant variables should be in Pascal case e.g. ❌[let TESTMyTemplate = ...], ✔️[let testMyTemplate = ...];
+- No variable names that are single letters(outside for loops) e.g. ❌[let c = 10], ✔️[let courses = 10];
+- Non-class private variables should be prefixed with a underscore e.g. ❌[let private=1], ✔️[let _private=1]
 - No nesting more than 3 levels deep.
-- Non-class private variables should be prefixed with a underscore i.e. ❌[let private=1], ✔️[let _private=1]
 - Avoid using depreceated features when possible.
 
 CODE REVIEW:
