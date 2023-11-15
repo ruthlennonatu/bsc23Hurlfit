@@ -10,3 +10,7 @@ going into the development branch.
 Then I will check if the branch being requested in to main
 is titled with the staging branch name. This will
 mean that the correct workflow is being followed.
+
+I am not checking to make sure that the origin pull
+request branch is coming from the development branch
+into the staging branch.
