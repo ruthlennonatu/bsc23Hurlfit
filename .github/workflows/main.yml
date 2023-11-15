@@ -1,9 +1,9 @@
-name: Check Branch Naming Conventions
+name: Check Branch Naming Convention for Development Branch
 
 on:
   pull_request:
     branches:
-      - main
+      - development
 
 jobs:
   my_first_job:
