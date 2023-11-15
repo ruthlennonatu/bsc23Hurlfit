@@ -10,5 +10,3 @@ going into the development branch.
 Then I will check if the branch being requested in to main
 is titled with the staging branch name. This will
 mean that the correct workflow is being followed.
-
-test
