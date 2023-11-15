@@ -16,6 +16,6 @@ jobs:
           if [[ "${{ github.head_ref }}" == "staging" ]]; then
             echo "Correct origin branch"
           else
-            echo "Incorrect origin branch, pull request must go through the staging branch before entering the main branch" 
+            echo "Incorrect origin branch, pull request must go through the staging branch before entering the main branch. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA." 
             exit 1
           fi
