@@ -1,4 +1,4 @@
-name: Check Branch Naming Convention for Development Branch
+name: Check Branch Naming Convention for Staging to Main Branch
 
 on:
   pull_request:
