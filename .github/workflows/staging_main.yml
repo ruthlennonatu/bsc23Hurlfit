@@ -1,0 +1,31 @@
+name: Check Branch Naming Convention for Staging to Main Branch
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  my_first_job:
+    name: Checking if branch origin is staging branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check branch name
+        run: |
+          if [[ "${{ github.head_ref }}" == "staging" ]]; then
+            echo "Correct origin branch"
+          else
+            echo "Incorrect origin branch, pull request must go through the staging branch before entering the main branch" 
+            exit 1
+          fi
+
+  my_second_job:
+    name: Checking if branch origin is un-successful
+    if: failure()
+    runs-on: ubuntu-latest
+    needs: my_first_job
+    steps:
+      - uses: actions/checkout@v4
+      - name: Naming convention Failure
+        run: echo "Origin branch check failed in previous job"
