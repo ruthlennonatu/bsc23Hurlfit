@@ -31,7 +31,7 @@ Our product will be delivered using an Agile methodology that embraces the DevOp
 - Week 5 Scrum Master <name> <lnumber>
 - Week 6 Scrum Master <name> <lnumber>
 - Week 8 Scrum Master <Aaron Bonner> <L00167055>
-
+- Week 9 Scrum Master <Oskar Iszkuło> <L00166873>
 
 # Product Owner
 <name> <number> (Permanent)
@@ -74,10 +74,11 @@ Project Log	Team log for the project
 
 # Risk Register
 These are the current Risks on the project, re-aligned on a weekly basis
-
+Adding in the pre-commit hook will be tricky. Everyone has to run `pre-commit install` upon cloning the repo for it to work, and the directions are a little confusing.
 
 # Tenants of Design
 The language we'll be using is Javascript, the framework used will be Node.js
+Code standard is specified in Documents branch, and will be updated later.
 
 # Security:
 - SpotBugs: uses static analysis to find bugs in java code. 

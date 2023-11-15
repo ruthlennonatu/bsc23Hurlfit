@@ -1,19 +1,24 @@
-name: Check Branch Naming Conventions
+name: Check Branch Naming Convention for Development Branch
 
 on:
   pull_request:
     branches:
-      - main
+      - 'development'
 
 jobs:
   my_first_job:
     name: Checking if branch naming convention is successful
-    if: startsWith(format(github.head_ref), format(${{ github.actor }} + '-'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check branch name
-        run: echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
+        run: |
+          if [[ "${{ github.head_ref }}" == "${{ github.actor }}-"* ]]; then
+            echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
+          else
+            echo "Incorrect naming convention, branches must start with username" 
+            exit 1
+          fi
 
   my_second_job:
     name: Checking if branch naming convention is un-successful
@@ -23,4 +28,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Naming convention Failure
-        run: echo "Incorrect naming convention, branches must contain username" && exit 1
+        run: echo "Naming convention check failed in previous job"
