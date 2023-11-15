@@ -8,13 +8,13 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.static("express"));
 
-// default URL for website
+// Default URL for website - Homepage
 app.use('/', function(req,res){
     res.sendFile(path.join(__dirname+'/express/home2.html'));
     //__dirname : It will resolve to your project folder.
   });
 
-//view schedules homepage.
+//Schedules homepage.
 app.use('/schedules', function(req,res){
     res.sendFile(path.join(__dirname+'/express/schedules.html'));
     //__dirname : It will resolve to your project folder.
@@ -25,7 +25,7 @@ app.use('/login', function(req, res) {
     res.sendFile(path.join(__dirname+'/express/login.html'))
   });
 
-  
+
 /*****************************************
 For oskar to put his code into when ready.
 ******************************************/
