@@ -3,7 +3,7 @@ name: Check Branch Naming Convention for Development Branch
 on:
   pull_request:
     branches:
-      - development
+      - 'development'
 
 jobs:
   my_first_job:
