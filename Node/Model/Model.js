@@ -28,12 +28,39 @@ async function closeConnection() {
 }
 
 // Signup function
-exports.SignUp = function (req, res, data) {
+exports.SignUp = function (req, res) {
     connectToMongoDB().then(
-        function () {
-            // Perform signup operations here
-            // ...
-            closeConnection(); // Close connection after operations
+        async function () {
+            try {
+                const database = client.db(databaseName);
+                const collection = database.collection(collectionName);
+
+                // Extract user data from request body
+                const userData = {
+                    firstName: req.body.FirstName,
+                    lastName: req.body.LastName,
+                    email: req.body.Email,
+                    password: req.body.Password,
+                    gender: req.body.Gender,
+                    dateOfBirth: req.body.Date
+                };
+
+                // Insert user data into the collection
+                const result = await collection.insertOne(userData);
+
+                if (result.acknowledged) {
+                    // Redirect or send a success response
+                    res.redirect('/Booking'); // Redirect to the homepage
+                } else {
+                    // Handle sign up failure
+                    res.send('Signup failed');
+                }
+            } catch (err) {
+                console.error('Error during signup:', err);
+                res.send('Error during signup');
+            } finally {
+                closeConnection(); // Close connection after operations
+            }
         }
     );
 }
