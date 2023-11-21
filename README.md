@@ -27,6 +27,8 @@ This is the online repository for the DevOps Assignment.
 Our product will be delivered using an Agile methodology that embraces the DevOps culture. Please note that our culture embraces change and these documents are treated as living, breathing artefacts that will be continuously updated.
 
 # Scrum Master
+- Week 2 Scrum Master <name> <lnumber>
+- Week 3 Scrum Master <Calvin Harvey> <L00160435>
 - Week 4 Scrum Master <name> <lnumber>
 - Week 5 Scrum Master <name> <lnumber>
 - Week 6 Scrum Master <name> <lnumber>
