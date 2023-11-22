@@ -86,6 +86,7 @@ exports.ScheduleShow = function (req, res, data) {
     scheduleShow(res);
 }
 
+//creates schedules
 exports.ScheduleCreate = function (req, res, data) {
     connectToMongoDB().then(
         function (){
@@ -115,13 +116,28 @@ exports.ScheduleCreate = function (req, res, data) {
     );
 }
 
+//deletes schedules by id
 exports.ScheduleDelete = function (req, res, data) {
     connectToMongoDB().then(
         function (){
             try{
                 const database = client.db(databaseName);
+
+                //trying to make it so that i can delete by id.
+                //tried multiple ways, didnt work
                 
-                database.collection('schedules').collection.deleteOne(data.schedule_id);
+                //might be able to solve this if we use handlebars. unsure, but maybe
+                //database.collection('schedules').deleteOne({_id: data._id});
+                //if that doesn't work, we'll have to use mongoose
+                
+                //another possible solution -- untested
+                //schedules = database.collection('schedules');
+                //schedules.deleteOne({_id: schedules.findOne({title: data.schedule_title})._id});
+                //wait, no point, since its just normal deleteOne with extra steps
+
+                //for now, itll just delete by title
+                database.collection('schedules').deleteOne({title: data.schedule_title});
+
             }catch(err){
                 res.status(500).json([err]);
             }
@@ -132,13 +148,21 @@ exports.ScheduleDelete = function (req, res, data) {
     );
 }
 
+//adds sessions to schedules
 exports.ScheduleSessionAdd = function (req, res, data) {
     connectToMongoDB().then(
         function (){
             const database = client.db(databaseName);
 
             const schedule = database.collection('schedules').findOne(data.schedule_id);
-            schedule[data.day].push(database.collection('sessions').findOne(data.session_id));
+
+            const newSession = {
+                "session": database.collection('sessions').findOne(data.session_id),
+                "start_time":data.time,
+                "duration":data.duration
+            }
+
+            schedule[data.day].push();
 
             scheduleShow(res);
             closeConnection();
@@ -146,15 +170,36 @@ exports.ScheduleSessionAdd = function (req, res, data) {
     );
 }
 
+//removes sessions from schedules
 exports.ScheduleSessionDelete = function (req, res, data) {
     connectToMongoDB().then(
         function (){
             const database = client.db(databaseName);
 
-            const collection = database.collection()
+            const collection = database.collection();
 
             scheduleShow(res);
             closeConnection();
         }
     );
 }
+
+
+//using this to figure out how objectID works. anyone can delete it, once i dont need it
+/*
+exports.TestForObjectID = function (req, res, data){
+    connectToMongoDB().then(
+        function(){
+            const database = client.db(databaseName);
+
+            const schedule = database.collection('schedules');
+
+            id = schedule.
+
+            console.log(type());
+            console.log();
+        }
+    );
+
+}
+*/

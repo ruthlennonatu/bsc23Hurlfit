@@ -84,7 +84,7 @@
     <br><br>
     <!--Deletes schedule-->
     <div>
-        <form action="/Schedules/delete">
+        <form action="/Schedules/delete" method="post">
             <b>Delete Schedule: </b>
             <!--
             {{#if schedules}}
@@ -98,14 +98,14 @@
                 <p>No schedules exist in the database.</p><br>
             {{/if}}
             -->
-            <input name="schedule_id" type="text">
+            <input name="schedule_title" type="text">
             <input type="submit"><br>
         </form>
     </div>
     <br><br>
     <!--Adds session to a schedule-->
     <div>
-        <form action="/Schedules/add_session">
+        <form action="/Schedules/add_session" method="post">
             <!--handlebar-->
             <!--
             <h3>Add session to schedule</h3><br>
@@ -146,6 +146,11 @@
                 <option value="thursday">Thursday</option>
                 <option value="friday">Friday</option>
             </select><br>
+            <b>Time: </b>
+            <!--text for now-->
+            <input name="time" type="text"><br>
+
+            <b>Capacity: </b><input name="capacity" type="text"><br>
             <input type="submit"><br>
 
         </form>
