@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Test</title>
+</head>
+<body>
+    <!--Display schedules and their info-->
+    <!--Temporary inline styling-->
+<!--
+    <div style="display:flex;flex-direction:column;">
+        <div style="display:flex;flex-direction:row">
+            <div style="width:70px;color:blue;">ID</div>
+            <div style="width:40px;color:yellow;">Title</div>
+            <div style="width:40px;color:blue;">Type</div>
+            <div style="width:100px;color:yellow;">Monday</div>
+            <div style="width:100px;color:blue;">Tuesday</div>
+            <div style="width:100px;color:yellow;">Wednesday</div>
+            <div style="width:100px;color:blue;">Thursday</div>
+            <div style="width:100px;color:yellow;">Friday</div>
+        </div>
+        {{#if schedules}}
+            {{#for schedules}}
+            <div style="display:flex;flex-direction:row">
+                <div style="width:70px;color:red;">{{schedules._id}}</div>
+                <div style="width:40px;color:green;">{{schedules.title}}</div>
+                <div style="width:40px;color:red;">{{schedules.type}}</div>
+                <div style="width:100px;color:green;">{{schedules.monday}}</div>
+                <div style="width:100px;color:red;">{{schedules.tuesday}}</div>
+                <div style="width:100px;color:green;">{{schedules.wednesday}}</div>
+                <div style="width:100px;color:red;">{{schedules.thursday}}</div>
+                <div style="width:100px;color:green;">{{schedules.friday}}</div>
+            </div>
+            {{/for}}
+        {{else}}
+            <div style="width:650px;color:aquamarine;">No schedules exist in the database</div>
+        {{/if}}
+    </div>
+
+    <div>
+        <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;flex-direction:row">
+                <div style="width:70px;color:blue;">ID</div>
+                <div style="width:40px;color:yellow;">Name</div>
+                <div style="width:40px;color:blue;">Coach</div>
+                <div style="width:100px;color:yellow;">Duration</div>
+                <div style="width:100px;color:blue;">Capacity</div>
+            </div>
+            {{#if sessions}}
+                {{#each sessions}}
+                <div style="display:flex;flex-direction:row">
+                    <div style="width:70px;color:red;">{{sessions._id}}</div>
+                    <div style="width:40px;color:green;">{{sessions.name}}</div>
+                    <div style="width:40px;color:red;">{{sessions.coach}}</div>
+                    <div style="width:100px;color:green;">{{sessions.duration}}</div>
+                    <div style="width:100px;color:red;">{{sessions.capacity}}</div>
+                </div>
+                {{/for}}
+            {{else}}
+                <div style="width:650px;color:aquamarine;">No schedules exist in the database</div>
+            {{/if}}
+        </div>
+    </div>
+    -->
+
+    <!--Creates schedule-->
+    <div>
+        <form action="/Schedules/create" method="post">
+            <b>Schedule title: </b>
+            <input name="schedule_title" type="text"><br>
+
+            <b>Schedule type: </b>
+            <select name="schedule_type">
+                <option value="PROGRAM">Program</option>
+                <option value="TRAINER">Trainer</option>
+            </select><br>
+
+            <input type="submit">
+        </form>
+    </div>
+    <br><br>
+    <!--Deletes schedule-->
+    <div>
+        <form action="/Schedules/delete">
+            <b>Delete Schedule: </b>
+            <!--
+            {{#if schedules}}
+                <select name="schedule_id" id="schedule_choice">
+                    {{#each schedules}}
+                        <option value= {{schedule._id}}>{{schedule.title}}</opction>
+                    {{/each}}
+                </select><br>
+                <input type="submit"><br>
+            {{else}}
+                <p>No schedules exist in the database.</p><br>
+            {{/if}}
+            -->
+            <input name="schedule_id" type="text">
+            <input type="submit"><br>
+        </form>
+    </div>
+    <br><br>
+    <!--Adds session to a schedule-->
+    <div>
+        <form action="/Schedules/add_session">
+            <!--handlebar-->
+            <!--
+            <h3>Add session to schedule</h3><br>
+            <b>Schedule: </b>
+            {{#if schedules}}
+                <select name="schedule_id" id="schedule_choice">
+                    {{#each schedules}}
+                        <opction value={{schedule._id}}>{{schedule.title}}</opction>
+                    {{/each}}
+                </select><br>
+            {{else}}
+                <p>No schedules exist in the database.</p><br>
+            {{/if}}
+
+            <b>Session: </b>
+            {{#if session}}
+                <select name="session_id" id="session_choice">
+                    {{#each session}}
+                        <opction value= {{session._id}}>{{session.name}}</opction>
+                    {{/each}}
+                </select><br>
+            {{else}}
+                <p>No sessions exist in the database.</p><br>
+            {{/if}}
+            
+            {{#if schedules and session}}
+                <input type="submit"><br>
+            {{/if}}
+            -->
+
+            <b>Schedule ID:</b><input name="schedule_id" type="text"><br>
+            <b>Session ID:</b><input name="session_id" type="text"><br>
+            <b>Day: </b>
+            <select name="day">
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+            </select><br>
+            <input type="submit"><br>
+
+        </form>
+    </div>
+    <br><br>
+    <!--Removes session from schedule-->
+    <!--display the sessions within the day you choose, select option
+    <div>
+        <form action="/Schedules/remove_session/">
+
+            
+
+        </form>
+    </div>
+    -->
+</body>
