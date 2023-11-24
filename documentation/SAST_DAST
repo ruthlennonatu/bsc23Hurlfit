@@ -22,7 +22,7 @@ https://www.checkpoint.com/de/cyber-hub/cloud-security/what-is-static-applicatio
 Which Tool we are using and How ?
 
 As per the programmming language , Specific project need based on this factors we need to choose sast tool. are focused on the open source tool which performs the SAST on our application
-Few tool which we can consider are :-
+Few Open source tool which we can consider are :-
 
 1. Semgrep
 2. Bearer
