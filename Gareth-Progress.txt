@@ -3,3 +3,16 @@ into using Github Actions to check for various rules using the workflows.
 
 Currently now working on implementing naming conventions for the branches that
 can be created. It will check for pull requests and creation requests.
+
+Updating the if statement to now check if the pull request being comapared is
+going into the development branch.
+
+Then I will check if the branch being requested in to main
+is titled with the staging branch name. This will
+mean that the correct workflow is being followed.
+
+I am not checking to make sure that the origin pull
+request branch is coming from the development branch
+into the staging branch.
+
+test
