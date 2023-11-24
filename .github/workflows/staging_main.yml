@@ -1,0 +1,21 @@
+name: Staging to Main Branch
+
+on:
+  pull_request:
+    branches:
+      - main
+# This job checks if the branch name is "staging" and that it is being merged into "main".
+jobs:
+  my_first_job:
+    name: Is branch origin staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check branch name
+        run: |
+          if [[ "${{ github.head_ref }}" == "staging" ]]; then
+            echo "Correct origin branch"
+          else
+            echo "Incorrect origin branch, pull request must go through the staging branch before entering the main branch. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA." 
+            exit 1
+          fi

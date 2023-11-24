@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class 6</title>
+  </head>
+
+  <body>
+    <div class="signup-container">
+      <h2>Sign Up</h2>
+      <form action="/SignupSubmit" method="post">
+        <input name="FirstName" id="firstname" type="text" placeholder="First name"
+        required/>
+        <input name="LastName" id="LastName" type="text" placeholder="Last name"required/>
+        <br />
+        <br />
+        <input name="Email" id="Email" type="text" placeholder="Email" required/> <br />
+        <br />
+        <input name="Password" id="Password" type="text" placeholder="New Password" required/>
+
+        <p><strong> Gender </strong></p>
+        <input name="Gender" id="Gender"type="radio" name="em" value="Male" required/> Male
+        <input name="Gender" id="Gender" type="radio" name="em" value="Female" required/> Female
+        <input name="Gender" id="Gender" type="radio" name="em" value="Other"  required/> Other <br />
+        <br />
+        <p><strong> Date Of Birth </strong></p>
+        <input name="Date" id="Date" type="datetime-local" id="Test_DatetimeLocal" required/> <br />
+        <br />
+
+        <br />
+        <button type="submit">Sign Up</button>
+
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

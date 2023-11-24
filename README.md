@@ -27,11 +27,13 @@ This is the online repository for the DevOps Assignment.
 Our product will be delivered using an Agile methodology that embraces the DevOps culture. Please note that our culture embraces change and these documents are treated as living, breathing artefacts that will be continuously updated.
 
 # Scrum Master
+- Week 2 Scrum Master <name> <lnumber>
+- Week 3 Scrum Master <Calvin Harvey> <L00160435>
 - Week 4 Scrum Master <name> <lnumber>
 - Week 5 Scrum Master <name> <lnumber>
 - Week 6 Scrum Master <name> <lnumber>
 - Week 8 Scrum Master <Aaron Bonner> <L00167055>
-
+- Week 9 Scrum Master <Oskar Iszkuło> <L00166873>
 
 # Product Owner
 <name> <number> (Permanent)
@@ -74,10 +76,11 @@ Project Log	Team log for the project
 
 # Risk Register
 These are the current Risks on the project, re-aligned on a weekly basis
-
+Adding in the pre-commit hook will be tricky. Everyone has to run `pre-commit install` upon cloning the repo for it to work, and the directions are a little confusing.
 
 # Tenants of Design
 The language we'll be using is Javascript, the framework used will be Node.js
+Code standard is specified in Documents branch, and will be updated later.
 
 # Security:
 - SpotBugs: uses static analysis to find bugs in java code. 
