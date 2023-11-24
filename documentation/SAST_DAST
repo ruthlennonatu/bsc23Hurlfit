@@ -1,0 +1,39 @@
+SAST stand for (Static Application Security Testing)
+
+What is SAST ? INTRODUCTION OF SAST
+
+SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.
+
+SAST tools give developers real-time feedback as they code, helping them fix issues before they pass the code to the next phase of the SDLC. This prevents security-related issues from being considered an afterthought. SAST tools also provide graphical representations of the issues found, from source to sink. These help you navigate the code easier. SAST Tools also provide in-depth guidance on how to fix issues and the best place in the code to fix them, without requiring deep security domain expertise.
+
+WE can create the customized reports with SAST tools; these reports can be exported offline and tracked using dashboards. Tracking all the security issues reported by the tool in an organized way can help remediate these issues promptly and release applications with minimal problems. 
+
+It’s important to note that SAST tools must be run on the application on a regular basis, such as during daily/monthly builds, every time code is checked in, or during a code release.
+
+SAST faster than manual secure code reviews performed by humans. These tools can scan millions of lines of code in a matter of minutes. SAST tools automatically identify critical vulnerabilities—such as buffer overflows, SQL injection, cross-site scripting, and others—with high confidence. Thus, integrating static analysis into the SDLC can yield dramatic results in the overall quality of the code developed.
+
+Links :- 
+
+https://www.synopsys.com/glossary/what-is-sast.html
+https://www.opentext.com/what-is/sast
+https://www.checkpoint.com/de/cyber-hub/cloud-security/what-is-static-application-security-testing-sast/
+
+------------------------------------------------------------------------------------------------------------
+Which Tool we are using and How ?
+
+As per the programmming language , Specific project need based on this factors we need to choose sast tool. are focused on the open source tool which performs the SAST on our application
+Few tool which we can consider are :-
+
+1. Semgrep
+2. Bearer
+3. Code QL by Github
+4. CodeSec
+5. CodeSweep
+
+------------------------------------------------------------------------------------------------------------
+
+DAST Stand for (Dynamic Application security Testing)
+
+
+
+Which Tool we are using and How ?
