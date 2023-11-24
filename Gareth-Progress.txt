@@ -1,9 +1,12 @@
+Week 2:
 Currently working on implementing CI CD into the pipeline. I will be looking
 into using Github Actions to check for various rules using the workflows.
 
+Week 3:
 Currently now working on implementing naming conventions for the branches that
 can be created. It will check for pull requests and creation requests.
 
+Week 5:
 Updating the if statement to now check if the pull request being comapared is
 going into the development branch.
 
@@ -11,8 +14,10 @@ Then I will check if the branch being requested in to main
 is titled with the staging branch name. This will
 mean that the correct workflow is being followed.
 
-I am not checking to make sure that the origin pull
+I am now checking to make sure that the origin pull
 request branch is coming from the development branch
 into the staging branch.
 
-test
+Week 8:
+Looking into implementing automated documentaiton. Currently doing research into the best way
+to do this. Goal is to achieve something using GitHub Pages.
