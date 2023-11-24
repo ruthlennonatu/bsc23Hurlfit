@@ -93,6 +93,15 @@ Code standard is specified in Documents branch, and will be updated later.
     integration testing
     UA
     API Testing
+
+    Performance Testing
+    Performance testing is the practice of evaluating how a system performs in terms of responsiveness and stability under a particular workload. Performance tests are typically executed to examine speed, robustness, reliability, and application size.
+
+    JMeter is the recommended choice for performance testing and is widely used in JavaScript and more.
+    The Apache JMeter™ application is open source software, a 100% pure Java application designed to load test functional behavior and measure performance. It was originally designed for testing Web Applications but has since expanded to other test functions. Apache JMeter may be used to test performance both on static and dynamic resources, Web dynamic applications.
+    It can be used to simulate a heavy load on a server, group of servers, network or object to test its strength or to analyze overall performance under different load types.
+
+
 # Environments:
     staging and production
     tight configuration management for consistency and reproducibility
