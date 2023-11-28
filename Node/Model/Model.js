@@ -84,3 +84,21 @@ exports.Login = function (req, res, data) {
         }
     );
 }
+
+// Booking function
+exports.book = function (req, res, data) {
+    connectToMongoDB().then(
+        async function () {
+            const database = client.db(databaseName);
+            // Access the collection
+            const collection = database.collection(collectionName);
+            const user = await collection.findOne(data);
+            res.json({ exists: user != null });
+            if (user) {
+                console.log("Valid User");
+            } else {
+                console.log("Invalid User");
+            }
+        }
+    );
+}
