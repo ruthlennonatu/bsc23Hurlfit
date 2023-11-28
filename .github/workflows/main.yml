@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - 'development'
-
+# This job checks if the person creating the PR has the same username at the front of their branch name.
 jobs:
   my_first_job:
     name: Is branch naming convention successful?
@@ -16,6 +16,6 @@ jobs:
           # if [[ "${{ github.head_ref }}" == "${{ github }}-"* ]]; then
           #   echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
           # else
-          #   echo "Incorrect naming convention, branches must start with username. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA." 
+          #   echo "Incorrect naming convention, branches must start with username. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA."
             exit 1
           fi

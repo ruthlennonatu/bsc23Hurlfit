@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - 'staging'
-
+# This job checks if the branch name is "development" and that it is being merged into "development".
 jobs:
   my_first_job:
     name: Is origin development branch?
