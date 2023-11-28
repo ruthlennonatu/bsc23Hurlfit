@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check branch name
         run: |
-          if [[ "${{ github.head_ref }}" == "${{ github.actor }}-"* ]]; then
+          if [[ "${{ github.head_ref }}" == "${{ github }}-"* ]]; then
             echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
           else
             echo "Incorrect naming convention, branches must start with username. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA." 
