@@ -59,25 +59,28 @@ exports.Login = function (req, res, data) {
     );
 }
 
+//function that can get all of the 
 function scheduleShow(res){
     connectToMongoDB().then(
         function (){
-            const database = client.db(databaseName);
+            //gets the database ready, so that you don't have to do "client.db(databaseName)" when performing actions related to MongoDB
+            const database = client.db(databaseName);//databaseName = the name of the database, as the name suggests
 
             try{
-                const schedule_list = database.collection('schedules').find();
-                const session_list = database.collection('sessions').find();
+                //think of collections as list, or a "collection" of json files... which are basically dictionaries
+                const schedule_list = database.collection('schedules').find();//gets all objects in the "schedules" collection
+                const session_list = database.collection('sessions').find();//gets all objects in the "sessions" collection
 
+                //brings up the "Schedules" page - The name is based on the one in "index.js"
+                res.redirect('/Schedules');
+                //render('/Schedules', {schedules: schedule_list, sessions: session_list});, if we use handlebars
                 //sends all info related to sessions and schedules
                 //so that it can be displayed
-                res.redirect('/Schedules');
-                //for render();, if we use handlebars
-                //, {schedules: schedule_list, sessions: session_list}
+                //unsure how render(); works with ReactJS, since I never used it.
             }catch(err){
                 res.status(500).json([err]);
             }
-
-            closeConnection();
+            //closeConnection();
         }
     );
 }
@@ -93,8 +96,10 @@ exports.ScheduleCreate = function (req, res, data) {
             try{
                 const database = client.db(databaseName);
 
-                const collection = database.collection('schedules');
+                const collection = database.collection('schedules');//gets all objects in the "schedules" collection
 
+                //All arrays with named after a weekday are empty when the schedule is created
+                //so that 
                 const schedule = {
                     "schedule_title":data.schedule_title,//placeholder for the title --req.body.program_title-- or program id related?
                     "schedule_type":data.schedule_type,//whether its a schedule for trainees or for the trainers
@@ -105,7 +110,7 @@ exports.ScheduleCreate = function (req, res, data) {
                     "friday":[]
                 };
 
-                collection.insertOne(schedule);
+                collection.insertOne(schedule);//adds the dictionary to the database, 
             }catch(err){
                 res.status(500).json([err]);
             }
@@ -136,7 +141,8 @@ exports.ScheduleDelete = function (req, res, data) {
                 //wait, no point, since its just normal deleteOne with extra steps
 
                 //for now, itll just delete by title
-                database.collection('schedules').deleteOne({title: data.schedule_title});
+                //deletes the first json it comes across
+                database.collection('schedules').deleteOne({title: data.schedule_title});//({title: data.schedule_title}) can be replaced with ({_id: data.schedule_id})
 
             }catch(err){
                 res.status(500).json([err]);
@@ -153,16 +159,25 @@ exports.ScheduleSessionAdd = function (req, res, data) {
     connectToMongoDB().then(
         function (){
             const database = client.db(databaseName);
+            
+            
+            const schedule = database.collection('schedules').findOne({title: data.schedule_title});//finds the first json it comes across with that exact name
 
-            const schedule = database.collection('schedules').findOne(data.schedule_id);
 
+            /*
+                Code that checks whether the session overlaps with other schedules on that day, at that time.
+            */
+
+            //example of creating the session dictionary
             const newSession = {
-                "session": database.collection('sessions').findOne(data.session_id),
-                "start_time":data.time,
-                "duration":data.duration
+                //gets the session - for now by title, but can be changed to 
+                "session": database.collection('sessions').findOne({title: data.session_title}),
+                "start_time":data.time,//time - Text input instead of Datetime, at the moment.
+                "duration":data.duration//duration - integer, minutes
             }
 
-            schedule[data.day].push();
+            //adds the session to the schedule
+            schedule[data.day].push(newSession);
 
             scheduleShow(res);
             closeConnection();
@@ -176,7 +191,11 @@ exports.ScheduleSessionDelete = function (req, res, data) {
         function (){
             const database = client.db(databaseName);
 
-            const collection = database.collection();
+            const collection = database.collection('schedules');
+
+            /*
+                Code for deleting the specific sessions from the schedules collection 
+            */
 
             scheduleShow(res);
             closeConnection();
