@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 
-const model = require("./model/model.js"); // path for database connection file
+const model = require("./Model/model.js"); // path for database connection file
 
 const app = express();
 
