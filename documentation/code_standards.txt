@@ -5,10 +5,10 @@ The Style Guide we will use is Standard.js. The rules for it are listed at its h
 
 - A pre-commit hook is also available; all code that attempts to be pushed to main will be fixed to fit the standard automatically.
 - A tester CLI program that can be installed using Node to test if the code follows the standard. 
-    -This can be installed using 'npm install standard'; and will be included in package.json so it can work with 'npm test'.
+    - This can be installed using 'npm install standard'; and will be included in package.json so it can work with 'npm test'.
 -Linters are available to ensure that we code in this style. 
     - The one for VSCode is located at https://marketplace.visualstudio.com/items?itemName=standard.vscode-standard.
-    -Other linters for other editors are available at the homepage.
+    - Other linters for other editors are available at the homepage.
 
 CODING CONVENTIONS:
 Along with this style guide, the following rules for code should be adhered to. Note that these don't have an associated pre-commit hook:
