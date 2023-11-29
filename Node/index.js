@@ -12,6 +12,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //this prevents favicon not found error
+
+/*
+action - either "get" or "post"
+link - the link, you can put anything here - used to "connect" the html part of the app with forms
+req - what you recieve
+res - what you send
+
+app.<action>(<link>, function(req, res)){
+    //code
+}
+*/
+
 app.get("/favicon.ico", function(req, res){
     res.status(204);
 });
@@ -28,14 +40,23 @@ app.get("/Booking",function(req,res){
     res.sendFile(path.join(__dirname + "/Public/booking.html"));
 });
 
+/*
+model name - the name of the function in Model.js
+data to send - basically, whatever you want to send to the function
+
+model.<model name>(<data to send>);
+*/
+
 app.post("/SignupSubmit",function(req,res){
     var data = req.body;
+    //sends the req, res and req.body
     model.SignUp(req,res,data);
 });
 
 app.post("/LoginSubmit",function(req,res){
     var data = req.body
     console.log(data);
+    //sends the req, res and req.body
     model.Login(req,res,data);
 });
 
@@ -46,6 +67,7 @@ app.get("/Schedules", function(req, res){
 });
 
 app.post("/Schedules/create", function(req, res){
+    //sends the req, res and req.body as its own thing
     model.ScheduleCreate(req, res, req.body);
 });
 
