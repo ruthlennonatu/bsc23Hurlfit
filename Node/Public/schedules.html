@@ -68,6 +68,12 @@
 
     <!--Creates schedule-->
     <div>
+        <!--
+            action=<link>
+
+            link - the link, you can put anything here - used to "connect" the html part of the app with forms
+            basically, you will see/type this into the searchbar at the top www.<website_name>.ie/<link>
+        -->
         <form action="/Schedules/create" method="post">
             <b>Schedule title: </b>
             <input name="schedule_title" type="text"><br>
@@ -136,8 +142,8 @@
             {{/if}}
             -->
 
-            <b>Schedule ID:</b><input name="schedule_id" type="text"><br>
-            <b>Session ID:</b><input name="session_id" type="text"><br>
+            <b>Schedule title:</b><input name="schedule_title" type="text"><br>
+            <b>Session title:</b><input name="session_title" type="text"><br>
             <b>Day: </b>
             <select name="day">
                 <option value="monday">Monday</option>

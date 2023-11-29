@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /*
 action - either "get" or "post"
 link - the link, you can put anything here - used to "connect" the html part of the app with forms
+basically, you will see/type this into the searchbar at the top www.<website_name>.ie/<link>
+
 req - what you recieve
 res - what you send
 
