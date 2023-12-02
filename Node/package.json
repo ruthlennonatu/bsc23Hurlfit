@@ -2,20 +2,26 @@
   "name": "bsc23hurlfit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "standard"
-  },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "standard": "*"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "standard",
+    "standard" : "standard"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongodb": "^6.2.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "standard": "^17.1.0"
   },
-  "devDependencies": {
-    "standard" : "*"
-  }
+  "pre-commit": [
+    "standard"
+  ]
 }
