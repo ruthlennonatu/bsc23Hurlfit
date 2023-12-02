@@ -15,7 +15,7 @@ Along with this style guide, the following rules for code should be adhered to. 
 
 - All function names should be in the format of verbNoun e.g. ❌[function fileFetch(){...}], ✔️[function fetchFile(){...}]
 - All non-function variables should be in the form of a noun or adjectiveNoun e.g. ❌[valueOfTheLoop += 1], ✔️[currentValue += 1]
-- Variavle or function names should not be abbreviated e.g. ❌[let tMembers = 1], ✔️[let totalMembers = 10];
+- Variable or function names should not be abbreviated e.g. ❌[let tMembers = 1], ✔️[let totalMembers = 10];
 - Constants should be in all capital letters seperated by underscores e.g. ❌[const portNumber = 3000], ✔️[const PORT_NUMBER = 3000];
 - Non-constant variables should be in Pascal case e.g. ❌[let TESTMyTemplate = ...], ✔️[let testMyTemplate = ...];
 - No variable names that are single letters(outside for loops) e.g. ❌[let c = 10], ✔️[let courses = 10];
