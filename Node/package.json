@@ -6,11 +6,13 @@
   "license": "ISC",
   "devDependencies": {
     "pre-commit": "^1.2.2",
-    "standard": "*"
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10"
+
   },
   "scripts": {
     "start": "node server.js",
-    "test": "standard",
+    "test": "mocha",
     "standard" : "standard"
   },
   "dependencies": {
