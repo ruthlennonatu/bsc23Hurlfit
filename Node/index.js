@@ -90,3 +90,8 @@ app.post("/Schedules/remove_session", function(req, res){
 app.listen(3000, function () {
     console.log("Server listening on port 3000");
 });
+
+app.post('/checkUserCredentials', function (req, res){
+    var data = req.body
+    model.book(req,res,data)
+});

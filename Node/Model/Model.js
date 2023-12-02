@@ -29,12 +29,39 @@ async function closeConnection() {
 }
 
 // Signup function
-exports.SignUp = function (req, res, data) {
+exports.SignUp = function (req, res) {
     connectToMongoDB().then(
-        function () {
-            // Perform signup operations here
-            // ...
-            closeConnection(); // Close connection after operations
+        async function () {
+            try {
+                const database = client.db(databaseName);
+                const collection = database.collection(collectionName);
+
+                // Extract user data from request body
+                const userData = {
+                    firstName: req.body.FirstName,
+                    lastName: req.body.LastName,
+                    email: req.body.Email,
+                    password: req.body.Password,
+                    gender: req.body.Gender,
+                    dateOfBirth: req.body.Date
+                };
+
+                // Insert user data into the collection
+                const result = await collection.insertOne(userData);
+
+                if (result.acknowledged) {
+                    // Redirect or send a success response
+                    res.redirect('/Booking'); // Redirect to the homepage
+                } else {
+                    // Handle sign up failure
+                    res.send('Signup failed');
+                }
+            } catch (err) {
+                console.error('Error during signup:', err);
+                res.send('Error during signup');
+            } finally {
+                closeConnection(); // Close connection after operations
+            }
         }
     );
 }
@@ -73,10 +100,7 @@ function scheduleShow(res){
 
                 //brings up the "Schedules" page - The name is based on the one in "index.js"
                 res.redirect('/Schedules');
-                //render('/Schedules', {schedules: schedule_list, sessions: session_list});, if we use handlebars
-                //sends all info related to sessions and schedules
-                //so that it can be displayed
-                //unsure how render(); works with ReactJS, since I never used it.
+
             }catch(err){
                 res.status(500).json([err]);
             }
@@ -128,19 +152,6 @@ exports.ScheduleDelete = function (req, res, data) {
             try{
                 const database = client.db(databaseName);
 
-                //trying to make it so that i can delete by id.
-                //tried multiple ways, didnt work
-                
-                //might be able to solve this if we use handlebars. unsure, but maybe
-                //database.collection('schedules').deleteOne({_id: data._id});
-                //if that doesn't work, we'll have to use mongoose
-                
-                //another possible solution -- untested
-                //schedules = database.collection('schedules');
-                //schedules.deleteOne({_id: schedules.findOne({title: data.schedule_title})._id});
-                //wait, no point, since its just normal deleteOne with extra steps
-
-                //for now, itll just delete by title
                 //deletes the first json it comes across
                 database.collection('schedules').deleteOne({title: data.schedule_title});//({title: data.schedule_title}) can be replaced with ({_id: data.schedule_id})
 
@@ -203,22 +214,21 @@ exports.ScheduleSessionDelete = function (req, res, data) {
     );
 }
 
-
-//using this to figure out how objectID works. anyone can delete it, once i dont need it
-/*
-exports.TestForObjectID = function (req, res, data){
+// Booking function
+exports.book = function (req, res, data) {
     connectToMongoDB().then(
-        function(){
+        async function () {
             const database = client.db(databaseName);
-
-            const schedule = database.collection('schedules');
-
-            id = schedule.
-
-            console.log(type());
-            console.log();
+            // Access the collection
+            const collection = database.collection(collectionName);
+            const user = await collection.findOne(data);
+            res.json({ exists: user != null });
+            if (user) {
+                console.log("Valid User");
+            } else {
+                console.log("Invalid User");
+            }
         }
     );
-
 }
-*/
+
