@@ -3,12 +3,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hurlfit- Booking</title>
     <style>
-        
         .box-container {
             display: flex;
             flex-wrap: wrap;
@@ -22,7 +22,7 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            
+
         }
 
         .box img {
@@ -30,80 +30,170 @@
             height: auto;
         }
     </style>
-    
+
 </head>
+
 <body>
-    
+
     <header style="text-align: center;">
         <h1>Hurlfit Booking </h1>
-    
 
-    <ul style="list-style: none; padding: 0; display: inline-flex;"> 
-        <li style="margin-right: 20px;"><a href="#">Home</a></li>
-        <li style="margin-right: 20px;"><a href="#">Booking</a></li>
-        <li style="margin-right: 20px;"><a href="#">Profile</a></li>
-        <li style="margin-right: 20px;"><a href="#">Logout</a></li>
-        
-    </ul>
-        
+
+        <ul style="list-style: none; padding: 0; display: inline-flex;">
+            <li style="margin-right: 20px;"><a href="#">Home</a></li>
+            <li style="margin-right: 20px;"><a href="#">Booking</a></li>
+            <li style="margin-right: 20px;"><a href="#">Profile</a></li>
+            <li style="margin-right: 20px;"><a href="#">Logout</a></li>
+
+        </ul>
+
     </header>
 
     <main>
         <div class="box-container">
             <!-- Box 1 -->
-            <div class="box">
-                <h3>Box 1</h3>
-                <p>Text for Box 1.</p>
-                
-                <input type="text" id="booking1_requirements" name="booking1_requirements"> <br>
-                <button id="booking1">Book Now</button>
+            <div class="box" id="box1">
+                <h3>Session 1</h3>
+                <input type="text" class="text" placeholder="Username">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password"><br>
+                <button onclick="manageBooking(1, 'add')">Book Now</button>
+                <button onclick="manageBooking(1, 'remove')">Remove Booking</button>
+                <p>Users:</p>
+                <div class="user-details"></div>
             </div>
-
             <!-- Box 2 -->
-            <div class="box">
-                
-                <h3>Box 2</h3>
-                <p>Text for Box 2.</p>
-                <input type="text" id="booking2_requirements" name="booking2_requirements"> <br>
-                <button id="booking2">Book Now</button>
+            <div class="box" id="box2">
+                <h3>Session 2</h3>
+                <input type="text" class="text" placeholder="Username">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password"><br>
+                <button onclick="manageBooking(2, 'add')">Book Now</button>
+                <button onclick="manageBooking(2, 'remove')">Remove Booking</button>
+                <p>Users:</p>
+                <div class="user-details"></div>
             </div>
 
             <!-- Box 3 -->
-            <div class="box">
-                <h3>Box 3</h3>
-                <p>Text for Box 3.</p>
-                <input type="text" id="booking3_requirements" name="booking3_requirements"> <br>
-                <button id="booking3">Book Now</button>
+            <div class="box" id="box3">
+                <h3>Session 3</h3>
+                <input type="text" class="text" placeholder="Username">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password"><br>
+                <button onclick="manageBooking(3, 'add')">Book Now</button>
+                <button onclick="manageBooking(3, 'remove')">Remove Booking</button>
+                <p>Users:</p>
+                <div class="user-details"></div>
             </div>
 
             <!-- Box 4 -->
-            <div class="box">
-                <h3>Box 4</h3>
-                <p>Text for Box 4.</p>
-                <input type="text" id="booking4_requirements" name="booking4_requirements"> <br>
-                <button id="booking4">Book Now</button>
+            <div class="box" id="box4">
+                <h3>Session 4</h3>
+                <input type="text" class="text" placeholder="Username">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password"><br>
+                <button onclick="manageBooking(4, 'add')">Book Now</button>
+                <button onclick="manageBooking(4, 'remove')">Remove Booking</button>
+                <p>Users:</p>
+                <div class="user-details"></div>
             </div>
 
             <!-- Box 5 -->
-            <div class="box">
-                <h3>Box 5</h3>
-                <p>Text for Box 5.</p>
-                <input type="text" id="booking5_requirements" name="booking5_requirements"> <br>
-                <button id="booking5">Book Now</button>
+            <div class="box" id="box5">
+                <h3>Session 5</h3>
+                <input type="text" class="text" placeholder="Username">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password"><br>
+                <button onclick="manageBooking(5, 'add')">Book Now</button>
+                <button onclick="manageBooking(5, 'remove')">Remove Booking</button>
+                <p>Users:</p>
+                <div class="user-details"></div>
             </div>
 
             <!-- Box 6 -->
-            <div class="box">
-                <h3>Box 6</h3>
-                <p>Text for Box 6.</p>
-                <input type="text" id="booking6_requirements" name="booking6_requirements"> <br>
-                <button id="booking6">Book Now</button>
+            <div class="box" id="box6">
+                <h3>Session 6</h3>
+                <input type="text" class="text" placeholder="Username">
+                <input type="email" class="email" placeholder="Email">
+                <input type="password" class="password" placeholder="Password"><br>
+                <button onclick="manageBooking(6, 'add')">Book Now</button>
+                <button onclick="manageBooking(6, 'remove')">Remove Booking</button>
+                <p>Users:</p>
+                <div class="user-details"></div>
             </div>
         </div>
     </main>
 
-    <footer >
+    <footer>
         <p>&copy; 2023 Hurlfit. All rights reserved.</p>
     </footer>
+    <script>
+        // Function to manage booking actions (add or remove) for a specific box
+        function manageBooking(boxNumber, action) {
+            // Get the specific box based on its number
+            var box = document.getElementById('box' + boxNumber);
+
+            // Retrieve user details from selected box
+            var usernameInput = box.querySelector('.text');
+            var emailInput = box.querySelector('.email');
+            var passwordInput = box.querySelector('.password');
+            var userDetailsDiv = box.querySelector('.user-details');
+            // Basic validation
+            if (!emailInput.value || !passwordInput.value) {
+                alert('Please enter both email and password');
+                return;
+            }
+
+            // Check if user exists in the database
+            fetch('/checkUserCredentials', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: emailInput.value,
+                    password: passwordInput.value
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // If user exists the following code will execute
+                    if (data.exists) {
+                        if (action === 'add') {
+                            // Append user details in the box
+                            userDetailsDiv.innerHTML += '<p class="user-entry">Username: ' + usernameInput.value + '<br>' + 'Email: ' + emailInput.value + '</p>';
+                        } else if (action === 'remove') {
+                            // Remove user details from the box
+                            removeUserFromBox(userDetailsDiv, usernameInput.value, emailInput.value);
+                        }
+                        // Clear the input fields
+                        usernameInput.value = '';
+                        emailInput.value = '';
+                        passwordInput.value = '';
+                    } else {
+                        // Alert that displays if user does not exist
+                        alert('User does not exist or password incorrect');
+                    }
+                })
+                .catch((error) => {
+                    // Logs any found errors to the console
+                    console.error('Error:', error);
+                });
+        }
+
+        // Function to remove user details from a box
+        function removeUserFromBox(userDetailsDiv, username, email) {
+            // Get all user entries in the box
+            let entries = userDetailsDiv.getElementsByClassName('user-entry');
+            for (let i = 0; i < entries.length; i++) {
+                // Checks if the entered inputs match the username and email
+                if (entries[i].innerHTML.includes('Username: ' + username) && entries[i].innerHTML.includes('Email: ' + email)) {
+                    userDetailsDiv.removeChild(entries[i]);
+                    break;
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>

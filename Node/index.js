@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 
-const model = require("./Model/model.js"); // path for database connection file
+const model = require("./Model/Model.js"); // path for database connection file
 
 const app = express();
 
@@ -41,4 +41,9 @@ app.post("/LoginSubmit",function(req,res){
 
 app.listen(3000, function () {
     console.log("Server listening on port 3000");
+});
+
+app.post('/checkUserCredentials', function (req, res){
+    var data = req.body
+    model.book(req,res,data)
 });
