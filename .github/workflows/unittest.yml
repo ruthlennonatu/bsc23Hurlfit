@@ -6,8 +6,8 @@ name: Run Unit Tests
 on:
   push:
     branches:
-      - main  
-      - workflow
+      - development
+      - staging
 
 # Define the job for the workflow
 jobs:

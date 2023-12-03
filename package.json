@@ -1,9 +1,4 @@
 {
-  "name": "bsc23hurlfit",
-  "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "pre-commit": "^1.2.2",
     "standard": "*"
@@ -23,5 +18,8 @@
   },
   "pre-commit": [
     "standard"
-  ]
-}
+  ],
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  }
+

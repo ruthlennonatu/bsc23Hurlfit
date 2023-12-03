@@ -1,21 +1,21 @@
-name: Branch Naming for Development Branch
+#name: Branch Naming for Development Branch
 
-on:
-  pull_request:
-    branches:
-      - 'development'
+#on:
+#  pull_request:
+#    branches:
+#      - 'development'
 
-jobs:
-  my_first_job:
-    name: Is branch naming convention successful?
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Check branch name
-        run: |
-          if [[ "${{ github.head_ref }}" == "${{ github.actor }}-"* ]]; then
-            echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
-          else
-            echo "Incorrect naming convention, branches must start with username. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA." 
-            exit 1
-          fi
+#jobs:
+#  my_first_job:
+#    name: Is branch naming convention successful?
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Check branch name
+#        run: |
+#          if [[ "${{ github.head_ref }}" == "${{ github.actor }}-"* ]]; then
+#            echo "Branch has correct naming conventions" ${{ github.head_ref }} ${{ github.actor }}
+#          else
+#            echo "Incorrect naming convention, branches must start with username. Please use git commit --allow-empty -m 'Trigger CI' to push and emplty commit which will reset the commit SHA." 
+#            exit 1
+#          fi
