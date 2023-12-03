@@ -1,7 +1,9 @@
 {
   "devDependencies": {
     "pre-commit": "^1.2.2",
-    "standard": "*"
+    "standard": "*",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
   },
   "scripts": {
     "start": "node server.js",
@@ -18,8 +20,5 @@
   },
   "pre-commit": [
     "standard"
-  ],
-    "chai": "^4.3.10",
-    "mocha": "^10.2.0"
-  }
-
+  ]
+}
