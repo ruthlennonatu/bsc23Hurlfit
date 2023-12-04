@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "standard",
+    "test": "mocha",
     "standard": "standard"
   },
   "dependencies": {
