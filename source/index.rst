@@ -11,6 +11,7 @@ Welcome to Hurlfit's documentation!
    :caption: Contents:
    
    indexjs
+   mocha_tests
 
 Indices and tables
 ==================
