@@ -30,8 +30,9 @@ Our product will be delivered using an Agile methodology that embraces the DevOp
 - Week 2 Scrum Master <name> <lnumber>
 - Week 3 Scrum Master <Calvin Harvey> <L00160435>
 - Week 4 Scrum Master <name> <lnumber>
-- Week 5 Scrum Master <name> <lnumber>
+- Week 5 Scrum Master <Gareth Craig> <L00129014>
 - Week 6 Scrum Master <name> <lnumber>
+- Week 7 Scrum Master <Ansh Mahajan> <L00150556>
 - Week 8 Scrum Master <Aaron Bonner> <L00167055>
 - Week 9 Scrum Master <Oskar Iszkuło> <L00166873>
 
