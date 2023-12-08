@@ -34,6 +34,33 @@ Few Open source tool which we can consider are :-
 
 DAST Stand for (Dynamic Application security Testing)
 
+DAst, or Dynamic Application Security Testing, is a type of security testing that analyzes an application while it's running. It assesses the application for vulnerabilities and potential threats in real-time, simulating various attack scenarios. DAst tools interact with the application as an attacker would, identifying weaknesses in the code, configuration, or other security aspects.
 
+These tools are crucial for ensuring the security of applications, especially in DevOps environments where continuous integration and deployment are common. DAst can be integrated into the DevOps pipeline to automatically test applications during development and deployment phases, ensuring security is not compromised during rapid iterations.
+
+Several companies leverage DAst tools to enhance the security posture of their applications. For instance, large tech companies like Google, Microsoft, and Amazon use DAst solutions to fortify their software against potential security threats. Other enterprises across industries like finance, healthcare, and e-commerce also implement DAst tools to safeguard their applications from cyber threats.
 
 Which Tool we are using and How ?
+
+A DAST scanner searches for vulnerabilities in a running application and then sends automated alerts if it finds flaws that allow for attacks like SQL injections, Cross-Site Scripting (XSS), and more. Since DAST tools are equipped to function in a dynamic environment, they can detect runtime flaws which SAST tools can’t identify.
+
+ZAP - A full featured free and open source DAST tool that includes both automated scanning for vulnerabilities and tools to assist expert manual web app pen testing.
+
+StackHawk - StackHawk is a commercially supported DAST tool built on ZAP and optimized to run in CI/CD (almost every CI supported) to test web applications during development and in CI/CD. The StackHawk platform allows you to manage findings over time in different environments. StackHawk is free for Open Source projects and free to use on a single application.
+
+Arachni - Arachni is a commercially supported scanner, but its free for most use cases, including scanning open source projects.
+
+VWT Digital’s sec-helpers - Collection of dynamic security related helpers. Sec-helpers is a bundle of useful tests and validators to ensure the security of a given domain.
+
+OWASP purpleteam - A security regression testing SaaS and CLI, perfect for inserting into your build pipelines. 
+
+CI Fuzz CLI - An open source command line tool for creating fuzz tests. The tool is tightly integrated with various build systems, enabling developers to create fuzz tests as easily as unit tests.
+
+Code Intelligence App - This application security testing platform enables CI/CD-integrated fuzz testing at each pull request. 
+
+-------------------------------------------------------------------------------------------------------------
+
+What is the difference between SAST and DAST?
+DAST attacks the application from the “outside in” by attacking an application like a malicious user would. After a DAST scanner performs these attacks, it looks for results that are not part of the expected result set and identifies security vulnerabilities.
+
+SAST, on the other hand, analyzes static environments, meaning the source code of an application. It looks at the application from the “inside out,” searching for vulnerabilities in the code
