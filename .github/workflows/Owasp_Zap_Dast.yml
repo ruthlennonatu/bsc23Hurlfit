@@ -15,4 +15,4 @@ jobs:
         - name: ZAP Scan
           uses: zaproxy/action-baseline@v0.4.0
           with:
-            target: 'http://localhost:3000'
+            target: 'http://localhost:3000/'
