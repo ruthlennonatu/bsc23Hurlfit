@@ -1,0 +1,30 @@
+name: Weekly Performance Testing
+
+# Schedule the workflow to run every week
+# This cron job runs at 00:00 every Sunday (adjust as needed)
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up k6
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify the Node.js version
+
+      - name: Install k6
+        run: |
+          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
+          echo "deb https://dl.bintray.com/loadimpact/deb stable main" | sudo tee -a /etc/apt/sources.list
+          sudo apt-get update
+          sudo apt-get install k6
+
+      - name: Run k6 performance test
+        run: k6 run performancetest/performancetest.js
