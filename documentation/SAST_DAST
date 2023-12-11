@@ -59,6 +59,15 @@ CI Fuzz CLI - An open source command line tool for creating fuzz tests. The tool
 Code Intelligence App - This application security testing platform enables CI/CD-integrated fuzz testing at each pull request. 
 
 -------------------------------------------------------------------------------------------------------------
+ For Dast we are using OWASP DAST
+
+ The references used for its implementation are 
+
+https://manumagalhaes.medium.com/owasp-zap-for-automated-dast-b70322b8309a -> Different types of scan
+https://github.com/marketplace?type=actions&query=zaproxy+ -> Github actions marketplace
+https://github.com/marketplace/actions/zap-baseline-scan -> information about baseline scan
+
+-------------------------------------------------------------------------------------------------------------
 
 What is the difference between SAST and DAST?
 DAST attacks the application from the “outside in” by attacking an application like a malicious user would. After a DAST scanner performs these attacks, it looks for results that are not part of the expected result set and identifies security vulnerabilities.
