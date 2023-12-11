@@ -12,6 +12,7 @@ jobs:
       runs-on: ubuntu-latest
       name: Scan Hurlfit website
       steps:
+        - uses: actions/checkout@v3
         - name: ZAP Scan
           uses: zaproxy/action-baseline@v0.4.0
           with:
