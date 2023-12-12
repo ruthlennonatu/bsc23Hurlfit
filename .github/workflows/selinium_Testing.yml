@@ -1,0 +1,36 @@
+#L00150556
+
+#This test runs the ui_testing.py script to test the UI 
+#it will get triggered when a push is made to the development or staging branch     
+name: Selenium Tests
+
+on:
+  push:
+    branches:
+      - development
+      - staging
+
+jobs:
+  test:
+    runs-on: windows-latest #runs the job on windows enviornment 
+
+    #Step to check out the code from the repository
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2 
+      
+      #Step to install python enviornment
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+        
+      #step to install selenium   
+    - name: Install dependencies
+      run: |
+        pip install selenium
+        
+      #Step to run the test  
+    - name: Run Selenium tests
+      run: |
+        python Node\ui_testing.py
