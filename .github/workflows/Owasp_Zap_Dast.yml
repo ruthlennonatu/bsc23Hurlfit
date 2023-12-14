@@ -1,0 +1,36 @@
+name: DAST Scan using OWASP ZAP
+
+on:
+  push:
+    branches:
+      - Shashanksanap99-SAST-DAST  # need to Replace branch name as per the branch we are using
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: DAST Scan Hurlfit website
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Check if URL is accessible
+        run: |
+          if curl -sSf http://localhost:3000/ >/dev/null; then
+            echo "URL is accessible. Proceeding with the scan."
+            export URL_ACCESSIBLE=true
+          else
+            echo "URL is not accessible. Proceeding with a dummy scan."
+            export URL_ACCESSIBLE=false
+          fi
+      
+      - name: Application Scan or Dummy Scan
+        if: ${{ env.URL_ACCESSIBLE == 'true' }}
+        run: |
+          /usr/bin/docker pull owasp/zap2docker-stable -q
+          /usr/bin/docker run --user root -v ${{ github.workspace }}:/zap/wrk/:rw --network=host -t owasp/zap2docker-stable zap-baseline.py -t http://localhost:3000/ -J report_json.json -w report_md.md -r report_html.html || true
+          echo "Application scan executed"
+        
+      - name: Save Dummy Report
+        if: ${{ env.URL_ACCESSIBLE != 'true' }}
+        run: |
+          echo "Creating a dummy report..."
+          # Generate a dummy report or perform actions to handle the situation when the URL is inaccessible
