@@ -3,7 +3,7 @@ name: DAST Scan using OWASP ZAP
 on:
   push:
     branches:
-      - Shashanksanap99-SAST-DAST  # need to Replace branch name as per the branch we are using
+      - development  # need to Replace branch name as per the branch we are using
 
 jobs:
   zap_scan:
