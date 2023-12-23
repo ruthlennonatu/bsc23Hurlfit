@@ -54,11 +54,11 @@ exports.SignUp = function (req, res) {
                     res.redirect('/Booking'); // Redirect to the homepage
                 } else {
                     // Handle sign up failure
-                    res.send('Signup failed');
+                    res.send(400);
                 }
             } catch (err) {
                 console.error('Error during signup:', err);
-                res.send('Error during signup');
+                res.send(400);
             } finally {
                 closeConnection(); // Close connection after operations
             }
@@ -79,7 +79,9 @@ exports.Login = function (req, res, data) {
                 res.redirect('/Booking');
             } else {
                 // Display login unsuccessful message
+                res.status(400);
                 res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`);
+                
             }
             closeConnection(); // Close connection after operations
         }

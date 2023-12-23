@@ -11,6 +11,7 @@ Welcome to Hurlfit's documentation!
    :caption: Contents:
    
    indexjs
+   selinium
 
 Indices and tables
 ==================
