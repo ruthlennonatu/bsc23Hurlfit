@@ -1,0 +1,36 @@
+name: SAST action
+
+on: 
+  push:
+    branches:
+      - development 
+      - staging
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+      name: checks out code
+      uses: actions/checkout@v3
+
+      name: sets up code
+      uses: actions/setup-node@v3
+      with:
+          node-version: 14
+
+      name: installs dependencies
+      run: npm install
+
+      name: starts server
+      run: node .
+
+      name: runs jest tests
+      run: npm run "jest-test"
+
+        
+
+      
+      
