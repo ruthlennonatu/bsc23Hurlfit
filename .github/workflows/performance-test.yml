@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 0 * * 0'
 
+  # This line allows this workflow to be triggered manually in the actions tab
+  workflow_dispatch:
+
 jobs:
   performance-test:
     runs-on: ubuntu-latest
