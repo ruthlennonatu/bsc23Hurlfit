@@ -23,11 +23,12 @@ async function connectToMongoDB() {
     }
 }
 
+// Close connection to the database.
 async function closeConnection() {
     await client.close();
 }
 
-// Signup function
+// Signs up the user from data supplied to the request(req), and renders a sucess message if sucessful. If not, render a failure message.
 exports.SignUp = function (req, res) {
     connectToMongoDB().then(
         async function () {
@@ -65,7 +66,7 @@ exports.SignUp = function (req, res) {
     );
 }
 
-// Login function
+// Log in a user given their data in 'data' and redirect to /Booking(split later). Sends a failure message if the user doesn't exist - will change later.
 exports.Login = function (req, res, data) {
     connectToMongoDB().then(
         async function () {
@@ -78,14 +79,14 @@ exports.Login = function (req, res, data) {
                 res.redirect('/Booking');
             } else {
                 // Display login unsuccessful message
-                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`);
+                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`); //Replace with redirect with message later.
             }
             closeConnection(); // Close connection after operations
         }
     );
 }
 
-// Booking function
+// Create a new booking in the database from the data in 'data'.
 exports.book = function (req, res, data) {
     connectToMongoDB().then(
         async function () {
