@@ -1,0 +1,21 @@
+I looked into different performance management tools and "methods/techniques"
+The plan is to find most used tools, read the reviews or comments from other users if I can find any, and test them.
+Then, compare the results for each language and finally choose
+
+
+
+Javascript
+
+Website:		https://developer.mozilla.org/en-US/docs/Learn/Performance/JavaScript
+	
+Potential tools:			
+
+Decided tools:		
+
+
+
+HTML
+
+Website:		https://developer.mozilla.org/en-US/docs/Learn/Performance/HTML
+
+Potential tools:	No such tools found at the moment

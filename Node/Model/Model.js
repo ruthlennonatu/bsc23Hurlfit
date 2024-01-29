@@ -2,7 +2,7 @@
 const { MongoClient } = require('mongodb');
 
 // Connection URI for local MongoDB instance
-const uri = 'mongodb://localhost:27017';
+const uri = 'mongodb://localhost:27017/';
 
 // Database Name
 const databaseName = 'hurling';
@@ -25,7 +25,8 @@ async function connectToMongoDB() {
 
 // Close connection to the database.
 async function closeConnection() {
-    await client.close();
+    //put this code here instead, because await client.close(); didnt work for me
+    setTimeout(() => {client.close()}, 1500);
 }
 
 // Signs up the user from data supplied to the request(req), and renders a sucess message if sucessful. If not, render a failure message.
@@ -53,12 +54,12 @@ exports.SignUp = function (req, res) {
                     // Redirect or send a success response
                     res.redirect('/Booking'); // Redirect to the homepage
                 } else {
-                    // Handle sign up failure - change according to #185
-                    res.send('Signup failed');
+                // Handle sign up failure
+                    res.send(400);
                 }
             } catch (err) {
                 console.error('Error during signup:', err);
-                res.send('Error during signup');
+                res.send(400);
             } finally {
                 closeConnection(); // Close connection after operations
             }
@@ -79,6 +80,7 @@ exports.Login = function (req, res, data) {
                 res.redirect('/Booking');
             } else {
                 // Display login unsuccessful message
+                res.status(400);
                 res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`); //Replace with redirect with message later - #185
             }
             closeConnection(); // Close connection after operations
@@ -87,6 +89,136 @@ exports.Login = function (req, res, data) {
 }
 
 // Create a new booking in the database from the data in 'data'.
+
+//function that can get all of the 
+function scheduleShow(res){
+    connectToMongoDB().then(
+        function (){
+            //gets the database ready, so that you don't have to do "client.db(databaseName)" when performing actions related to MongoDB
+            const database = client.db(databaseName);//databaseName = the name of the database, as the name suggests
+
+            try{
+                //think of collections as list, or a "collection" of json files... which are basically dictionaries
+                const schedule_list = database.collection('schedules').find();//gets all objects in the "schedules" collection
+                const session_list = database.collection('sessions').find();//gets all objects in the "sessions" collection
+
+                //brings up the "Schedules" page - The name is based on the one in "index.js"
+                res.redirect('/Schedules');
+
+            }catch(err){
+                res.status(500).json([err]);
+            }
+            //closeConnection();
+        }
+    );
+}
+
+exports.ScheduleShow = function (req, res, data) {
+    scheduleShow(res);
+}
+
+//creates schedules
+exports.ScheduleCreate = function (req, res, data) {
+    connectToMongoDB().then(
+        function (){
+            try{
+                const database = client.db(databaseName);
+
+                const collection = database.collection('schedules');//gets all objects in the "schedules" collection
+
+                //All arrays with named after a weekday are empty when the schedule is created
+                //so that 
+                const schedule = {
+                    "schedule_title":data.schedule_title,//placeholder for the title --req.body.program_title-- or program id related?
+                    "schedule_type":data.schedule_type,//whether its a schedule for trainees or for the trainers
+                    "monday":[],
+                    "tuesday":[],
+                    "wednesday":[],
+                    "thursday":[],
+                    "friday":[]
+                };
+
+                collection.insertOne(schedule);//adds the dictionary to the database, 
+            }catch(err){
+                res.status(500).json([err]);
+            }
+
+            scheduleShow(res);
+            closeConnection();
+        }
+    );
+}
+
+//deletes schedules by id
+exports.ScheduleDelete = function (req, res, data) {
+    connectToMongoDB().then(
+        function (){
+            try{
+                const database = client.db(databaseName);
+
+                //deletes the first json it comes across
+                database.collection('schedules').deleteOne({title: data.schedule_title});//({title: data.schedule_title}) can be replaced with ({_id: data.schedule_id})
+
+            }catch(err){
+                res.status(500).json([err]);
+            }
+
+            scheduleShow(res);
+            closeConnection();
+        }
+    );
+}
+
+//adds sessions to schedules
+exports.ScheduleSessionAdd = function (req, res, data) {
+    connectToMongoDB().then(
+        function (){
+            const database = client.db(databaseName);
+            
+            
+            const schedule = database.collection('schedules').findOne({title: data.schedule_title});//finds the first json it comes across with that exact name
+
+
+            /*
+                Code that checks whether the session overlaps with other schedules on that day, at that time.
+            */
+
+            //example of creating the session dictionary
+            const newSession = {
+                //gets the session - for now by title, but can be changed to 
+                "session": database.collection('sessions').findOne({title: data.session_title}),
+                "start_time":data.time,//time - Text input instead of Datetime, at the moment.
+                "duration":data.duration//duration - integer, minutes
+            }
+
+            //adds the session to the schedule
+            schedule[data.day].push(newSession);
+
+            scheduleShow(res);
+            closeConnection();
+        }
+    );
+}
+
+//removes sessions from schedules
+exports.ScheduleSessionDelete = function (req, res, data) {
+    connectToMongoDB().then(
+        function (){
+            const database = client.db(databaseName);
+
+            const collection = database.collection('schedules');
+
+            /*
+                Code for deleting the specific sessions from the schedules collection 
+            */
+
+            scheduleShow(res);
+            closeConnection();
+        }
+    );
+}
+
+// Booking function
 exports.book = function (req, res, data) {
     connectToMongoDB().then(
         async function () {
@@ -103,3 +235,4 @@ exports.book = function (req, res, data) {
         }
     );
 }
+

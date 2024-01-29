@@ -1,0 +1,21 @@
+.. Hurlfit documentation master file, created by
+   sphinx-quickstart on Sat Dec  2 19:32:31 2023
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Hurlfit's documentation!
+===================================
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Contents:
+   
+   indexjs
+   selinium
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
