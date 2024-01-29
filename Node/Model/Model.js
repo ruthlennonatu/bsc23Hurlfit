@@ -23,12 +23,13 @@ async function connectToMongoDB() {
     }
 }
 
+// Close connection to the database.
 async function closeConnection() {
     //put this code here instead, because await client.close(); didnt work for me
     setTimeout(() => {client.close()}, 1500);
 }
 
-// Signup function
+// Signs up the user from data supplied to the request(req), and renders a sucess message if sucessful. If not, render a failure message.
 exports.SignUp = function (req, res) {
     connectToMongoDB().then(
         async function () {
@@ -38,12 +39,12 @@ exports.SignUp = function (req, res) {
 
                 // Extract user data from request body
                 const userData = {
-                    firstName: req.body.FirstName,
-                    lastName: req.body.LastName,
-                    email: req.body.Email,
-                    password: req.body.Password,
-                    gender: req.body.Gender,
-                    dateOfBirth: req.body.Date
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: req.body.password,
+                    gender: req.body.gender,
+                    dateOfBirth: req.body.date
                 };
 
                 // Insert user data into the collection
@@ -53,7 +54,7 @@ exports.SignUp = function (req, res) {
                     // Redirect or send a success response
                     res.redirect('/Booking'); // Redirect to the homepage
                 } else {
-                    // Handle sign up failure
+                // Handle sign up failure
                     res.send(400);
                 }
             } catch (err) {
@@ -66,7 +67,7 @@ exports.SignUp = function (req, res) {
     );
 }
 
-// Login function
+// Log in a user given their data in 'data' and redirect to /Booking(split later). Sends a failure message if the user doesn't exist - will change later - #185
 exports.Login = function (req, res, data) {
     connectToMongoDB().then(
         async function () {
@@ -80,13 +81,14 @@ exports.Login = function (req, res, data) {
             } else {
                 // Display login unsuccessful message
                 res.status(400);
-                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`);
-                
+                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`); //Replace with redirect with message later - #185
             }
             closeConnection(); // Close connection after operations
         }
     );
 }
+
+// Create a new booking in the database from the data in 'data'.
 
 //function that can get all of the 
 function scheduleShow(res){
