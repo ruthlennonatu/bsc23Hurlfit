@@ -53,7 +53,7 @@ exports.SignUp = function (req, res) {
                     // Redirect or send a success response
                     res.redirect('/Booking'); // Redirect to the homepage
                 } else {
-                    // Handle sign up failure
+                    // Handle sign up failure - change according to #185
                     res.send('Signup failed');
                 }
             } catch (err) {
@@ -66,7 +66,7 @@ exports.SignUp = function (req, res) {
     );
 }
 
-// Log in a user given their data in 'data' and redirect to /Booking(split later). Sends a failure message if the user doesn't exist - will change later.
+// Log in a user given their data in 'data' and redirect to /Booking(split later). Sends a failure message if the user doesn't exist - will change later - #185
 exports.Login = function (req, res, data) {
     connectToMongoDB().then(
         async function () {
@@ -79,7 +79,7 @@ exports.Login = function (req, res, data) {
                 res.redirect('/Booking');
             } else {
                 // Display login unsuccessful message
-                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`); //Replace with redirect with message later.
+                res.send(`Login unsuccessful! Email: ${data.email}, Password: ${data.password}`); //Replace with redirect with message later - #185
             }
             closeConnection(); // Close connection after operations
         }
