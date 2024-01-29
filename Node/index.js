@@ -5,10 +5,11 @@ const path = require("path");
 
 const model = require("./Model/Model.js"); // path for database connection file
 
+//Initialize App
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors()); //Support CORS(cross-origin resource sharing)
+app.use(bodyParser.json()); // Support parsing the bodies in middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //this prevents favicon not found error
