@@ -38,12 +38,12 @@ exports.SignUp = function (req, res) {
 
                 // Extract user data from request body
                 const userData = {
-                    firstName: req.body.FirstName,
-                    lastName: req.body.LastName,
-                    email: req.body.Email,
-                    password: req.body.Password,
-                    gender: req.body.Gender,
-                    dateOfBirth: req.body.Date
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: req.body.password,
+                    gender: req.body.gender,
+                    dateOfBirth: req.body.date
                 };
 
                 // Insert user data into the collection
