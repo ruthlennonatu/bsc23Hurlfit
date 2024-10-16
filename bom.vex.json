@@ -1,0 +1,82 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://openvex.dev/docs/public/vex-85ff1f3886404c858506691f15df820ce8de3394943bfa4fbbb42efa85bf3c51",
+  "author": "Unknown Author",
+  "timestamp": "2024-10-04T14:06:34.012885+02:00",
+  "last_updated": "2024-10-04T14:06:34.143624+02:00",
+  "version": 6,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2024-29041"
+      },
+      "timestamp": "2024-10-04T14:06:34.012886+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/express@4.18.2"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-43796"
+      },
+      "timestamp": "2024-10-04T14:06:34.042865+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/express@4.18.2"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-43799"
+      },
+      "timestamp": "2024-10-04T14:06:34.068699+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/send@0.18.0"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-43800"
+      },
+      "timestamp": "2024-10-04T14:06:34.094511+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/serve-static@1.15.0"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-45296"
+      },
+      "timestamp": "2024-10-04T14:06:34.119499+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/path-to-regexp@0.1.7"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-45590"
+      },
+      "timestamp": "2024-10-04T14:06:34.143625+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/body-parser@1.20.1"
+        }
+      ],
+      "status": "under_investigation"
+    }
+  ]
+}
